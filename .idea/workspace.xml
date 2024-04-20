@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StudentManagementSystem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/AccessLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Admin/Administrator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Admin/BackupUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Admin/DataExport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Admin/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Person/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Person/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Person/PersonBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Person/Student/Assignment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Person/Student/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Person/Teacher/Teacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Initial push of partially combined project code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +18,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -103,12 +86,25 @@
       <updated>1713568004772</updated>
       <workItem from="1713568005848" duration="12654000" />
       <workItem from="1713616069926" duration="1713000" />
-      <workItem from="1713622105385" duration="2663000" />
+      <workItem from="1713622105385" duration="3006000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial push of partially combined project code">
+      <option name="closed" value="true" />
+      <created>1713624877771</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713624877771</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial push of partially combined project code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial push of partially combined project code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
