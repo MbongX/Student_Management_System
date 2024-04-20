@@ -50,12 +50,15 @@ public class User{
             System.out.println("Username:");
             username = in.nextLine();
             //validate username
-            if(username.equals("")){
-                
-            }
-                
-            System.out.println("Password:");
-            password = in.nextLine();
+            if(validateUsername(username) == false){
+                System.out.println(getErrorMessage());
+            }else {
+                System.out.println("Password:");
+                password = in.nextLine();
+                //validate password 
+
+            }          
+
         }
         while(username.equals("") || password.equals(""));
         
@@ -63,6 +66,10 @@ public class User{
     }
 
     //methods
+    boolean isUsernameValid(String username){
+        
+    }
+    
     boolean validateUsername(String vNameInput)
     {
         //validating based on input parameter where 1-> Strings, 2 ->doubles
@@ -78,7 +85,7 @@ public class User{
         }
         if(strLen>0)
         {
-            if(!isNameValid(vNameInput))
+            if(!isUsernameValid(vNameInput))
             {
                 errorMessage = "Invalid name format please try again!";
                 valid = false;
@@ -142,3 +149,4 @@ public class User{
     }
 }
 //template classes
+// Vlad you can also join the audio call so we can communicate efficiently
