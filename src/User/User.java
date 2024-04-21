@@ -1,5 +1,7 @@
 package User;
 
+import java.io.Console;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -37,7 +39,7 @@ public class User{
     // Setter
 
 
-    //Constructurs
+    //Constructors
     public User(){
         
         System.out.println("//////////////////////////////////////////////////////////////");
@@ -53,9 +55,11 @@ public class User{
             if(username.equals("")){
                 
             }
-                
-            System.out.println("Password:");
-            password = in.nextLine();
+                // password masking implementation
+            Console console = System.console();
+            char[] passwordChars = console.readPassword("Enter your password: ");
+            password = new String(passwordChars);
+            Arrays.fill(passwordChars, ' ');
         }
         while(username.equals("") || password.equals(""));
         
@@ -63,9 +67,17 @@ public class User{
     }
 
     //methods
+
+
+    boolean isNameValid(String name) {
+        // Implement your validation logic here
+        // For example, check if the name contains only letters and spaces
+        return name.matches("[a-zA-Z ]+");
+    }
     boolean validateUsername(String vNameInput)
     {
         //validating based on input parameter where 1-> Strings, 2 ->doubles
+        boolean valid = false;
 
         //get the string length
         int strLen = vNameInput.trim().length();
