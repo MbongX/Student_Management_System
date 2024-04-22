@@ -1,5 +1,7 @@
 package User;
 
+import java.io.Console;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.Console;
@@ -42,7 +44,7 @@ public class User{
     // Setter
 
 
-    //Constructurs
+    //Constructors
     public User(){
 
         Console console = System.console();
@@ -77,6 +79,14 @@ public class User{
                 password = console.readPassword();
                 //validate password
                 
+
+            }
+                // password masking implementation
+            Console console = System.console();
+            char[] passwordChars = console.readPassword("Enter your password: ");
+            password = new String(passwordChars);
+            Arrays.fill(passwordChars, ' ');
+
                 
                 if(isValidPassword(password.toString()) != true){
                     System.out.println(getErrorMessage());
@@ -87,6 +97,7 @@ public class User{
 
             }          
 
+
         }
         while(username.equals("") || password.equals(""));
         */
@@ -94,9 +105,10 @@ public class User{
     }
 
     //methods
+
     boolean isUsernameValid(String username){
         //extract code from classes.rar
-        String pattern = "^[a-zA-Z0-9]+$";
+        String pattern = "^[a-zA-Z0-9]+$"; 
         return username.matches(pattern);
     }
     

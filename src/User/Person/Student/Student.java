@@ -1,4 +1,6 @@
 package User.Person.Student;
 
-public class Student {
+import User.Person.Person;
+
+public class Student extends Person {
 }
