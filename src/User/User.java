@@ -1,10 +1,11 @@
 package User;
 
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.Console;
@@ -58,7 +59,7 @@ public class User{
 
 
     //Constructurs
-    public User() throws NoSuchAlgorithmException {
+    public User() {
         
         String inUsername = "",inPassword = "";
         char[] cPassword;
@@ -123,28 +124,36 @@ public class User{
                 } 
                 if (validatePassword(inPassword)){
                     //encrypt password before setting it on the password variable
+                    
+                    //try-catch block to cater for hashing/encryption exception
+                    try {
+                        // Create a new MessageDigest object to enable encryption, returned hash value is a byte array| Can look into surrounding the velow statement with a try-catch block
+                        MessageDigest digestPassword = MessageDigest.getInstance("SHA-256");
 
-                    // Create a new MessageDigest object to enable encryption, returned hash value is a byte array| Can look into surrounding the velow statement with a try-catch block
-                    MessageDigest digestPassword = MessageDigest.getInstance("SHA-256");
+                        //Storing the hash value within a byte array
+                        byte[] encodedHash = digestPassword.digest(password.getBytes(StandardCharsets.UTF_8));
 
-                    //Storing the hash value within a byte array
-                    byte[] encodedHash = digestPassword.digest(password.getBytes(StandardCharsets.UTF_8));
+                        //converting the byte array into a string via StringBuffer
+                        StringBuffer hashString = new StringBuffer();
 
-                    //converting the byte array into a string via StringBuffer
-                    StringBuffer hashString = new StringBuffer();
+                        for (byte b : encodedHash) {
+                            String hash = Integer.toHexString(0xff & b);
+                            if (hash.length() == 1) {
+                                hashString.append('0');
+                            }
+                            hashString.append(hash);
 
-                    for (byte b : encodedHash) {
-                        String hash = Integer.toHexString(0xff & b);
-                        if (hash.length() == 1) {
-                            hashString.append('0');
+                            hashString.append(hash);
                         }
-                        hashString.append(hash);
-
-                        hashString.append(hash);
+                        password = hashString.toString();
+                        System.out.println(password);
+                        validPassword = true;
+                        
+                    } catch (NoSuchAlgorithmException e) {
+                        System.err.println("Error: algorithm not available.");
+                        e.printStackTrace();
                     }
-                    password = hashString.toString();
-                    System.out.println(password);
-                    validPassword = true;
+
                 }
             }
             while(validatePassword(inPassword) == false);

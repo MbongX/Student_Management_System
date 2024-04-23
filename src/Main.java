@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 // user class declaration
 public class Main {
-    public static void main(String[] args) throws NoSuchAlgorithmException {
+    public static void main(String[] args)  {
         
         User user = new User();
 
