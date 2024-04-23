@@ -1,5 +1,7 @@
 package User;
 
+
+import java.util.Arrays;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -52,6 +54,7 @@ public class User{
     
     
     // Setter
+
 
 
     //Constructurs
@@ -112,6 +115,7 @@ public class User{
                 //convert the StringBuffer to a string
                 inPassword = sb.toString();
 
+
                 //validate Password
                 if (validatePassword(inPassword) != true) {
                     System.out.println(getErrorMessage());
@@ -150,9 +154,10 @@ public class User{
     }
 
     //methods
+
     boolean isUsernameValid(String username){
         //extract code from classes.rar
-        String pattern = "^[a-zA-Z0-9]+$";
+        String pattern = "^[a-zA-Z0-9]+$"; 
         return username.matches(pattern);
     }
     
