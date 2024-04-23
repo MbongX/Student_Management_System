@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="ConsoleInputManager try">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleInputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleInputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Chnaged prject jdk to 22 Preview to cater for the string template &quot;STR&quot; on ConsoleInputManager and try block on password logic" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +19,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Mbong &lt;mbongenimahlangu203@outlook.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="Teacher" />
@@ -164,7 +164,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713915349042</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Chnaged prject jdk to 22 Preview to cater for the string template &quot;STR&quot; on ConsoleInputManager">
+      <option name="closed" value="true" />
+      <created>1713916082103</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713916082103</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Chnaged prject jdk to 22 Preview to cater for the string template &quot;STR&quot; on ConsoleInputManager and try block on password logic">
+      <option name="closed" value="true" />
+      <created>1713916131036</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713916131036</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +189,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Teacher update" />
     <MESSAGE value="ConsoleInputManager try" />
-    <option name="LAST_COMMIT_MESSAGE" value="ConsoleInputManager try" />
+    <MESSAGE value="Chnaged prject jdk to 22 Preview to cater for the string template &quot;STR&quot; on ConsoleInputManager" />
+    <MESSAGE value="Chnaged prject jdk to 22 Preview to cater for the string template &quot;STR&quot; on ConsoleInputManager and try block on password logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chnaged prject jdk to 22 Preview to cater for the string template &quot;STR&quot; on ConsoleInputManager and try block on password logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
