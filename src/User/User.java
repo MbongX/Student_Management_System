@@ -66,6 +66,13 @@ public class User{
 
     }
 
+    public User(String id, String username, String password, AccessLevel typeAccess) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.typeAccess = typeAccess;
+    }
+
     //methods
 
 
