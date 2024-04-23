@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
 
+
     <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="ConsoleInputManager try">
       <change afterPath="$PROJECT_DIR$/src/commands/Quit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -36,6 +37,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
 
   <component name="GitHubPullRequestSearchHistory">{
@@ -46,7 +48,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/MbongX/Student_Management_System&quot;,
+    &quot;url&quot;: &quot;https://github.com/MbongX/Student_Management_System.git&quot;,
     &quot;accountId&quot;: &quot;009be723-4311-42c5-8d6b-58d156f40ae0&quot;
   }
 }</component>
@@ -60,6 +62,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
 
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
@@ -82,9 +85,8 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "settings.space",
     "vue.rearranger.settings.migration": "true"
-
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -102,6 +104,7 @@
       </list>
     </recent_temporary>
   </component>
+
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -109,6 +112,7 @@
       </set>
     </attachedChunks>
   </component>
+
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -149,6 +153,7 @@
       <option name="project" value="LOCAL" />
       <updated>1713626102559</updated>
     </task>
+
     <task id="LOCAL-00004" summary="Teacher update">
       <option name="closed" value="true" />
       <created>1713778189014</created>
@@ -166,7 +171,7 @@
       <updated>1713888192735</updated>
     </task>
     <option name="localTasksCounter" value="7" />
-
+    
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,10 +179,61 @@
   </component>
 
   <component name="VcsManagerConfiguration">
+
     <MESSAGE value="Teacher update" />
     <MESSAGE value="ConsoleInputManager try" />
     <option name="LAST_COMMIT_MESSAGE" value="ConsoleInputManager try" />
 
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>195</line>
+          <properties class="User.User" method="hashPasscode">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
