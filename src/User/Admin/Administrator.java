@@ -2,6 +2,8 @@ package User.Admin;
 
 import User.User;
 import User.AccessLevel;
+
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Administrator extends User {
@@ -13,10 +15,10 @@ public class Administrator extends User {
         System.out.println("You are an administrator. You can select the following options:");
         System.out.println("1. Users\n2. Courses\n3. System\n4. Log out");
         boolean isLoggedOut;
+        Scanner in = new Scanner(System.in);
 
         do {
             System.out.print("\nUse a command (1,2,3,4) to perform an action -> ");
-            Scanner in = new Scanner(System.in);
             String command = in.nextLine();
 
             isLoggedOut = false;
@@ -25,9 +27,7 @@ public class Administrator extends User {
                 case "2" -> accessCourses();
                 case "3" -> accessSystem();
                 case "4" -> isLoggedOut = true;
-                default -> {
-                    System.out.println("\nInvalid command! Please try again.");
-                }
+                default -> System.out.println("\nInvalid command! Please try again.");
             }
         }while(!isLoggedOut);
 
@@ -38,19 +38,36 @@ public class Administrator extends User {
         System.out.println("You have accessed the Users options:");
         System.out.println("1. View all users\n2. Add user\n3. Edit user\n4. Remove user\n5. Return to previous menu");
         boolean returnsBack;
+        Scanner in = new Scanner(System.in);
 
         do{
             System.out.print("\nUse a command (1,2,3,4,5) to perform an action -> ");
-            Scanner in = new Scanner(System.in);
             String command = in.nextLine();
 
             returnsBack = false;
             switch (command){
                 case "1" -> viewAllUsers();
                 case "2" -> addUser();
-                case "3" -> editUser();
-                case "4" -> removeUser();
+                case "3" -> {
+                    if(database.getUsers().isEmpty()){
+                        System.out.println("\nThere are no users available to edit");
+                    } else {
+                        System.out.print("\nChoose a valid user id to edit: ");
+                        String userId = getUserId(in);
+                        editUser(userId);
+                    }
+                }
+                case "4" -> {
+                    if(database.getUsers().isEmpty()){
+                        System.out.println("\nThere are no users available to remove");
+                    } else {
+                        System.out.print("\nChoose a valid user id to remove: ");
+                        String userId = getUserId(in);
+                        removeUser(userId);
+                    }
+                }
                 case "5" -> returnsBack = true;
+                default -> System.out.println("\nInvalid command! Please try again");
             }
         }while(!returnsBack);
     }
@@ -68,7 +85,7 @@ public class Administrator extends User {
     }
 
     private void viewAllUsers(){
-        if(database.getUsers().size() == 0){
+        if(database.getUsers().isEmpty()){
             System.out.println("There are no users in the database");
         }
         for(User user: database.getUsers()){
@@ -92,15 +109,32 @@ public class Administrator extends User {
         AccessLevel accessLevel = AccessLevel.fromString(getAccessLevel(in));
 
         database.getUsers().add(new User(userId, username, password, accessLevel));
-        System.out.println("A new user has been added");
+        System.out.println("User added successfully!");
     }
 
-    private void editUser(){
+    private void editUser(String userId){
+        System.out.println("\n---Editing a user---");
+        System.out.println("1. Edit username\n2. Edit password\n3. Edit access level\n4. Return to previous menu");
+        boolean returnsBack;
+        Scanner in = new Scanner(System.in);
 
+        do{
+            System.out.print("\nUse a command (1,2,3,4) to perform an action -> ");
+            String command = in.nextLine();
+            returnsBack = false;
+
+            switch (command){
+                case "1" -> editUsername(userId, in);
+                case "2" -> editPassword(userId, in);
+                case "3" -> editAccessLevel(userId, in);
+                case "4" -> returnsBack = true;
+            }
+        }while(!returnsBack);
     }
 
-    private void removeUser(){
-
+    private void removeUser(String userId){
+        database.getUsers().removeIf(user -> user.getId().equals(userId));
+        System.out.println("User " + userId + " has been removed");
     }
 
     private String getUsername(Scanner in){
@@ -151,7 +185,50 @@ public class Administrator extends User {
         return accessLevel;
     }
 
+    private String getUserId(Scanner in){
+
+        boolean isValidId = false;
+        String userId = "";
+
+        while(!isValidId){
+            userId = in.nextLine();
+            String finalUserId = userId;
+            if(database.getUsers().stream().anyMatch(user -> user.getId().equals(finalUserId))){
+                isValidId = true;
+            } else System.out.println("\nInvalid id! Please select one that exists");
+        }
+
+        return userId;
+    }
+
     private boolean isUnique(String username){
         return database.getUsers().stream().noneMatch(user -> user.getUsername().equals(username));
+    }
+
+    private void editUsername(String userId, Scanner in){
+        System.out.print("\nEnter the new username: ");
+        String username = getUsername(in);
+
+        database.getUsers().stream().filter(user -> user.getId().equals(userId))
+                                    .forEach(user -> user.setUsername(username));
+        System.out.println("User " + userId + " updated successfully!");
+    }
+
+    private void editPassword(String userId, Scanner in){
+        System.out.print("\nEnter the new password: ");
+        String password = getPassword(in);
+
+        database.getUsers().stream().filter(user -> user.getId().equals(userId))
+                                    .forEach(user -> user.setPassword(password));
+        System.out.println("User " + userId + " updated successfully!");
+    }
+
+    private void editAccessLevel(String userId, Scanner in){
+        System.out.print("\nSet the new access level: ");
+        AccessLevel accessLevel = AccessLevel.fromString(getAccessLevel(in));
+
+        database.getUsers().stream().filter(user -> user.getId().equals(userId))
+                                    .forEach(user -> user.setTypeAccess(accessLevel));
+        System.out.println("User " + userId + " updated successfully!");
     }
 }

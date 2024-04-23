@@ -36,6 +36,18 @@ public class User{
     public void setErrorMessage(String newErrorMessage) {
         this.errorMessage = newErrorMessage;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setTypeAccess(AccessLevel typeAccess) {
+        this.typeAccess = typeAccess;
+    }
     // Setter
 
 
@@ -158,6 +170,11 @@ public class User{
     public void viewMessage(Message message)
     {
         
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + id + "\nUsername: " + username + "\nPassword: " + password + "\nTypeAccess: " + typeAccess;
     }
 }
 //template classes
