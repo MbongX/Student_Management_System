@@ -1,7 +1,5 @@
 package User;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -152,7 +150,7 @@ public class User{
     }
 
     //methods
-    boolean isUsernameValid(@org.jetbrains.annotations.NotNull String username){
+    boolean isUsernameValid(String username){
         //extract code from classes.rar
         String pattern = "^[a-zA-Z0-9]+$";
         return username.matches(pattern);
@@ -198,7 +196,7 @@ public class User{
     public void hashPasscode(String password){
         
     }
-    boolean validateCredentials(@NotNull String username,@NotNull String password)
+    boolean validateCredentials( String username, String password)
     {
         // Note : This method will perform validation of the credentials against a db like system
         boolean valid = false;  //default value
