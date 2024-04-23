@@ -35,7 +35,7 @@ public class ConsoleInputManager {
     private static void displayCommands(CommandsManager commandsManager) {
         System.out.println("Commands available:");
         for (Command command : commandsManager.getCommands()) {
-            System.out.println(STR."\{command.getCommandNumber()} - \{command.getCommandName()}");
+            System.out.println(STR."\{command.getCommandNumber()} - \{command.getCommandName()}"); //this feature is enabled on jdk 22 Preview else it is disabled on jdk 22
         }
     }
 
