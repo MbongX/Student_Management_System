@@ -13,7 +13,7 @@ public class Administrator extends User {
     @Override
     public void start(){
 
-        System.out.println("You are an administrator. You can select the following options:");
+        System.out.println("\nYou are an administrator. You can select the following options:");
         System.out.println("1. Users\n2. Courses\n3. System\n4. Log out");
         boolean isLoggedOut;
         Scanner in = new Scanner(System.in);

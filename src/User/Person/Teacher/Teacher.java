@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static java.lang.StringTemplate.STR;
+
 public class Teacher extends User {
     Scanner in = new Scanner(System.in);
     Database database = Database.getInstance();

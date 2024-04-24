@@ -53,18 +53,6 @@ public class User{
         this.errorMessage = newErrorMessage;
     }
 
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setTypeAccess(AccessLevel typeAccess) {
-        this.typeAccess = typeAccess;
-    }
     // Setter
 
 
@@ -129,7 +117,7 @@ public class User{
         }
         if(strLen>0)
         {
-            if(!isUsernameValid(vNameInput))
+            if(!isNameValid(vNameInput))
             {
                 errorMessage = "Invalid name format please try again!";
                 valid = false;
