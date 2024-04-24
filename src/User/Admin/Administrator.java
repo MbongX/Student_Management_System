@@ -10,6 +10,7 @@ public class Administrator extends User {
 
     Database database = Database.getInstance();
 
+    @Override
     public void start(){
 
         System.out.println("You are an administrator. You can select the following options:");
@@ -35,7 +36,7 @@ public class Administrator extends User {
     }
 
     private void accessUsers(){
-        System.out.println("You have accessed the Users options:");
+        System.out.println("\nYou have accessed the Users options:");
         System.out.println("1. View all users\n2. Add user\n3. Edit user\n4. Remove user\n5. Return to previous menu");
         boolean returnsBack;
         Scanner in = new Scanner(System.in);
@@ -70,6 +71,8 @@ public class Administrator extends User {
                 default -> System.out.println("\nInvalid command! Please try again");
             }
         }while(!returnsBack);
+
+        viewAdminCommands();
     }
 
     private void accessCourses(){
@@ -81,7 +84,8 @@ public class Administrator extends User {
     }
 
     private void logOut(){
-        User user = new User();
+//        User user = new User();
+//        user.start();
     }
 
     private void viewAllUsers(){
@@ -89,8 +93,9 @@ public class Administrator extends User {
             System.out.println("There are no users in the database");
         }
         for(User user: database.getUsers()){
-            System.out.println(user);
+            System.out.println(user + "\n");
         }
+        viewUsersCommands();
     }
 
     private void addUser(){
@@ -101,7 +106,7 @@ public class Administrator extends User {
         System.out.println("Password must be minimum 6 characters, at least one lowercase, one uppercase, one digit and one special character");
         System.out.println("Access level must be Student, Teacher or Admin");
 
-        System.out.print("Username: ");
+        System.out.print("\nUsername: ");
         String username = getUsername(in);
         System.out.print("\nPassword: ");
         String password = getPassword(in);
@@ -110,6 +115,7 @@ public class Administrator extends User {
 
         database.getUsers().add(new User(userId, username, password, accessLevel));
         System.out.println("User added successfully!");
+        viewUsersCommands();
     }
 
     private void editUser(String userId){
@@ -130,11 +136,14 @@ public class Administrator extends User {
                 case "4" -> returnsBack = true;
             }
         }while(!returnsBack);
+
+        viewUsersCommands();
     }
 
     private void removeUser(String userId){
         database.getUsers().removeIf(user -> user.getId().equals(userId));
         System.out.println("User " + userId + " has been removed");
+        viewUsersCommands();
     }
 
     private String getUsername(Scanner in){
@@ -156,7 +165,7 @@ public class Administrator extends User {
     private String getPassword(Scanner in){
 
         boolean isValidPassword = false;
-        String pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$";
+        String pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&_-])[A-Za-z\\d@$!%*?&_-]{6,}$";
         String password = "";
 
         while(!isValidPassword){
@@ -212,6 +221,7 @@ public class Administrator extends User {
         database.getUsers().stream().filter(user -> user.getId().equals(userId))
                                     .forEach(user -> user.setUsername(username));
         System.out.println("User " + userId + " updated successfully!");
+        viewEditCommands();
     }
 
     private void editPassword(String userId, Scanner in){
@@ -221,6 +231,7 @@ public class Administrator extends User {
         database.getUsers().stream().filter(user -> user.getId().equals(userId))
                                     .forEach(user -> user.setPassword(password));
         System.out.println("User " + userId + " updated successfully!");
+        viewEditCommands();
     }
 
     private void editAccessLevel(String userId, Scanner in){
@@ -230,5 +241,18 @@ public class Administrator extends User {
         database.getUsers().stream().filter(user -> user.getId().equals(userId))
                                     .forEach(user -> user.setTypeAccess(accessLevel));
         System.out.println("User " + userId + " updated successfully!");
+        viewEditCommands();
+    }
+
+    private void viewAdminCommands(){
+        System.out.println("\n1. Users\n2. Courses\n3. System\n4. Log out");
+    }
+
+    private void viewUsersCommands(){
+        System.out.println("\n1. View all users\n2. Add user\n3. Edit user\n4. Remove user\n5. Return to previous menu");
+    }
+
+    private void viewEditCommands(){
+        System.out.println("\n1. Edit username\n2. Edit password\n3. Edit access level\n4. Return to previous menu");
     }
 }

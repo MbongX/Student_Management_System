@@ -53,28 +53,6 @@ public class User{
 
     //Constructors
     public User(){
-        
-        System.out.println("//////////////////////////////////////////////////////////////");
-        System.out.println("//               Student Management System                  //");
-        System.out.println("//////////////////////////////////////////////////////////////");
-        //System.out.println("Login:");
-        System.out.println("Please enter your username and password:\nNote: Password should be at least 6 characters, including lowercase, uppercase, digits and at least one special character");
-        
-        do{
-            System.out.println("Username:");
-            username = in.nextLine();
-            //validate username
-            if(username.equals("")){
-                
-            }
-                // password masking implementation
-            Console console = System.console();
-            char[] passwordChars = console.readPassword("Enter your password: ");
-            password = new String(passwordChars);
-            Arrays.fill(passwordChars, ' ');
-        }
-        while(username.equals("") || password.equals(""));
-        
 
     }
 
@@ -86,6 +64,29 @@ public class User{
     }
 
     //methods
+
+    public void start(){
+        System.out.println("//////////////////////////////////////////////////////////////");
+        System.out.println("//               Student Management System                  //");
+        System.out.println("//////////////////////////////////////////////////////////////");
+        //System.out.println("Login:");
+        System.out.println("Please enter your username and password:\nNote: Password should be at least 6 characters, including lowercase, uppercase, digits and at least one special character");
+
+        do{
+            System.out.println("Username:");
+            username = in.nextLine();
+            //validate username
+            if(username.equals("")){
+
+            }
+            // password masking implementation
+            Console console = System.console();
+            char[] passwordChars = console.readPassword("Enter your password: ");
+            password = new String(passwordChars);
+            Arrays.fill(passwordChars, ' ');
+        }
+        while(username.equals("") || password.equals(""));
+    }
 
 
     boolean isNameValid(String name) {
