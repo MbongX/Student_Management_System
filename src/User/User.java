@@ -1,16 +1,23 @@
 package User;
 
-import java.io.Console;
+
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.Console;
 
 public class User{
     //fields/attributes
-    String id,username,password,errorMessage;
+    String id = "",username = "",password = "",errorMessage = "";
     AccessLevel typeAccess;
     ArrayList<Message> messagess;
+    boolean valid;
     Scanner in = new Scanner(System.in);
+    Console console = System.console();
     
     
     //getters and setters
@@ -21,11 +28,20 @@ public class User{
     public String getUsername() {
         return username;
     }
+    public void setUsername(String username) { 
+        this.username = username; 
+    }
     public String getPassword() {
         return password;
     }
+    public void setPassword(String password) {
+        this.password = password; 
+    }
     public AccessLevel getTypeAccess() {
         return typeAccess;
+    }
+    public void setTypeAccess(AccessLevel typeAccess) {
+        this.typeAccess = typeAccess; 
     }
     public ArrayList<Message> getMessagess() {
         return messagess;
@@ -36,6 +52,7 @@ public class User{
     public void setErrorMessage(String newErrorMessage) {
         this.errorMessage = newErrorMessage;
     }
+
 
     public void setUsername(String username) {
         this.username = username;
@@ -66,10 +83,12 @@ public class User{
     //methods
 
     public void start(){
+
         System.out.println("//////////////////////////////////////////////////////////////");
         System.out.println("//               Student Management System                  //");
         System.out.println("//////////////////////////////////////////////////////////////");
         //System.out.println("Login:");
+
         System.out.println("Please enter your username and password:\nNote: Password should be at least 6 characters, including lowercase, uppercase, digits and at least one special character");
 
         do{
@@ -93,11 +112,11 @@ public class User{
         // Implement your validation logic here
         // For example, check if the name contains only letters and spaces
         return name.matches("[a-zA-Z ]+");
+
     }
+    
     boolean validateUsername(String vNameInput)
     {
-        //validating based on input parameter where 1-> Strings, 2 ->doubles
-        boolean valid = false;
 
         //get the string length
         int strLen = vNameInput.trim().length();
@@ -110,7 +129,7 @@ public class User{
         }
         if(strLen>0)
         {
-            if(!isNameValid(vNameInput))
+            if(!isUsernameValid(vNameInput))
             {
                 errorMessage = "Invalid name format please try again!";
                 valid = false;
@@ -128,9 +147,12 @@ public class User{
         
         return false;
     }
-    
-    boolean validateCredentials(String username, String password)
+    public void hashPasscode(String password){
+        
+    }
+    boolean validateCredentials( String username, String password)
     {
+        // Note : This method will perform validation of the credentials against a db like system
         boolean valid = false;  //default value
         
         if(username.equals("") || password.equals(""))
@@ -178,4 +200,3 @@ public class User{
         return "Id: " + id + "\nUsername: " + username + "\nPassword: " + password + "\nTypeAccess: " + typeAccess;
     }
 }
-//template classes

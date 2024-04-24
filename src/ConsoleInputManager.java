@@ -1,5 +1,7 @@
 import User.AccessLevel;
 import User.Person.Course;
+import commands.Command;
+import commands.CommandsManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +14,29 @@ public class ConsoleInputManager {
 
     public static void startProgram() {
         // @TODO 1. Loading date from CSV files or Json file
+        System.out.println("//////////////////////////////////////////////////////////////");
+        System.out.println("//               Student Management System                  //");
+        System.out.println("//////////////////////////////////////////////////////////////");
+        CommandsManager commandsManager = new CommandsManager();
+        while (true) {
+            System.out.println("Select by number your choice");
+            displayCommands(commandsManager);
+            String answer = scanner.nextLine().trim().toLowerCase();
+            if (answer.equals("q")) {
+                System.out.println("Exiting the program.");
+                break;
+            }
 
+        }
 
     }
 
-    public static void displayMenu(AccessLevel userRole) {
-
+    // Add role as argument to display commands according to each role ?
+    private static void displayCommands(CommandsManager commandsManager) {
+        System.out.println("Commands available:");
+        for (Command command : commandsManager.getCommands()) {
+            System.out.println(STR."\{command.getCommandNumber()} - \{command.getCommandName()}"); //this feature is enabled on jdk 22 Preview else it is disabled on jdk 22
+        }
     }
 
-    public List<Course> getCourses () {
-        return courses;
-    }
 }

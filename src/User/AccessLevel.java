@@ -1,5 +1,6 @@
 package User;
 
+import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 
 public enum AccessLevel{
@@ -13,4 +14,5 @@ public enum AccessLevel{
             return TEACHER;
         } else return ADMINISTRATOR;
     }
+    
 }

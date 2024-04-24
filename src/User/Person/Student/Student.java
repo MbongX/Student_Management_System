@@ -1,5 +1,6 @@
 package User.Person.Student;
 
+
 import User.Person.Course;
 import User.Person.Person;
 
@@ -48,4 +49,5 @@ public class Student extends Person {
         this.getAvailableCourses().add(course);
         course.getStudentAttendances().put(this, 0);
     }
+
 }
