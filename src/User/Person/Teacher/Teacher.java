@@ -37,6 +37,7 @@ public class Teacher extends User {
         logOut();
     }
 
+    // Choice 1
     private void accessCourses() {
         // Display all courses
         if (database.getCourses().isEmpty()) {
@@ -48,6 +49,7 @@ public class Teacher extends User {
         viewTeachersCommands();
     }
 
+    // Choice 2
     private void accessAttendance() {
         // Mark/update attendance OR Generate attendance report
         System.out.println("\nYou have accessed the attendance options:");
@@ -88,31 +90,6 @@ public class Teacher extends User {
         } while (!returnsBack);
     }
 
-    private void accessGrades() {
-
-    }
-
-    private void accessStudents() {
-        if (database.getUsers().isEmpty()) {
-            System.out.println("\nThere are no students available");
-        } else {
-            System.out.print("\nChoose a valid ID: ");
-            // @TODO ADDING LOOP TO DISPLAY STUDENTS ?
-            String studentId = getStudentId(in);
-            // @TODO Check the line below how we'll get our Student
-            Student student = (Student) database.getUsers().get(Integer.parseInt(studentId));
-            System.out.println(student.toString());
-        }
-    }
-
-    private void logOut() {
-        //
-    }
-
-    private void viewTeachersCommands() {
-        System.out.println("1. Courses\n2. Attendance tracking\n3. Assign grades\n4. Student details\n5. Log out");
-    }
-
 
     private void markAttendance(String courseId, String studentId) {
         // @todo UPDATING this method according to our DB and the setStudentAttendances(studentId) method in Course class
@@ -127,6 +104,56 @@ public class Teacher extends User {
             System.out.println(STR."\{entry.getKey().getName()} : \{entry.getValue()}\n");
         }
 
+    }
+
+    // Choice 3
+    private void accessGrades() {
+        if (database.getCourses().isEmpty() || database.getUsers().isEmpty()) {
+            System.out.println("\nThere are nothing to edit");
+        } else {
+            System.out.print("\nChoose a student id: ");
+            // @TODO ADDING LOOP TO DISPLAY students ?
+            String studentId = getStudentId(in);
+            System.out.print("\nChoose a  course id: ");
+            // @TODO ADDING LOOP TO DISPLAY COURSES ?
+            String courseId = getCourseId(in);
+            System.out.print("\nChoose an assignment id: ");
+            // @TODO ADDING LOOP TO DISPLAY COURSES ?
+            String assignmentId = getAssignmentId(in);
+            addMark(courseId, studentId, assignmentId);
+        }
+
+    }
+
+    private void addMark(String courseId, String studentId, String assignmentId) {
+        // @TODO Check the line below how we'll get our data
+        Course course = database.getCourses().get(Integer.parseInt(courseId));
+        Student student = (Student) database.getUsers().get(Integer.parseInt(studentId));
+        // Assignment assignment = database.getAssignments().get(Integer.parseInt(assignmentId));
+        // student.setMarks(course, assignment);
+    }
+
+    // Choice 4
+    private void accessStudents() {
+        if (database.getUsers().isEmpty()) {
+            System.out.println("\nThere are no students available");
+        } else {
+            System.out.print("\nChoose a valid ID: ");
+            // @TODO ADDING LOOP TO DISPLAY STUDENTS ?
+            String studentId = getStudentId(in);
+            // @TODO Check the line below how we'll get our Student
+            Student student = (Student) database.getUsers().get(Integer.parseInt(studentId));
+            System.out.println(student.toString());
+        }
+    }
+
+    // Choice 5
+    private void logOut() {
+    }
+
+    // Other methods
+    private void viewTeachersCommands() {
+        System.out.println("1. Courses\n2. Attendance tracking\n3. Assign grades\n4. Student details\n5. Log out");
     }
 
     private String getCourseId(Scanner in) {
@@ -157,6 +184,21 @@ public class Teacher extends User {
             }
         }
         return studentId;
+    }
+
+    private String getAssignmentId(Scanner in) {
+        boolean isValid = false;
+        String assignmentId = "";
+        while (!isValid) {
+            assignmentId = in.nextLine();
+            String finalAssignmentId = assignmentId;
+           /* if (database.getAssignments().stream().anyMatch(ass -> ass.getId().equals(finalAssignmentId))) {
+                isValid = true;
+            } else {
+                System.out.println("Invalid ID");
+            }*/
+        }
+        return assignmentId;
     }
 
 }
