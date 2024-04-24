@@ -2,6 +2,7 @@ package User.Person.Teacher;
 
 import User.Admin.Database;
 import User.Person.Course;
+import User.Person.Person;
 import User.Person.Student.Student;
 import User.User;
 
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 import static java.lang.StringTemplate.STR;
 
-public class Teacher extends User {
+public class Teacher extends Person {
     Scanner in = new Scanner(System.in);
     Database database = Database.getInstance();
 

@@ -1,9 +1,9 @@
 package User.Admin;
 
+import User.Person.Course;
 import User.User;
 import User.AccessLevel;
 
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Administrator extends User {
@@ -76,7 +76,25 @@ public class Administrator extends User {
     }
 
     private void accessCourses(){
+        System.out.println("\nYou have accessed the Courses options:");
+        System.out.println("1. View all courses\n2. Add course\n3. Edit course\n4. Remove course\n5. Return to previous menu");
+        boolean returnsBack;
+        Scanner in = new Scanner(System.in);
 
+        do{
+            System.out.print("\nUse a command (1,2,3,4,5) to perform an action -> ");
+            String command = in.nextLine();
+            returnsBack = false;
+
+            switch (command){
+                case "1" -> viewAllCourses();
+                case "2" -> addCourse();
+                case "3" -> {}
+                case "4" -> {}
+                case "5" -> returnsBack = true;
+                default -> System.out.println("Invalid command! Please try again");
+            }
+        }while(!returnsBack);
     }
 
     private void accessSystem(){
@@ -98,8 +116,17 @@ public class Administrator extends User {
         viewUsersCommands();
     }
 
+    private void viewAllCourses(){
+        if(database.getCourses().isEmpty()){
+            System.out.println("There are no courses in the database");
+        }
+        for(Course course: database.getCourses()){
+            System.out.println(course + "\n");
+        }
+    }
+
     private void addUser(){
-        String userId = String.valueOf(Database.GLOBAL_ID++);
+        String userId = String.valueOf(Database.GLOBAL_ID_USER++);
         Scanner in = new Scanner(System.in);
         System.out.println("\n---Create a new user---");
         System.out.println("Username must be minimum 4 characters, only letters and digits");
@@ -116,6 +143,32 @@ public class Administrator extends User {
         database.getUsers().add(new User(userId, username, password, accessLevel));
         System.out.println("User added successfully!");
         viewUsersCommands();
+    }
+
+    private void addCourse(){
+        String lecturerId = "";
+        String courseId = String.valueOf(Database.GLOBAL_ID_COURSE++);
+        Scanner in = new Scanner(System.in);
+        System.out.println("\n---Create a new course---");
+        System.out.println("Subject must be minimum 4 letters and unique");
+        System.out.println("Lecturer must have a valid id");
+        System.out.println("The total number of courses must be maximum 20");
+
+        System.out.print("\nSubject: ");
+        String subject = getSubject(in);
+
+        if(database.getUsers().stream().noneMatch(user -> user.getTypeAccess() == AccessLevel.TEACHER)){
+            System.out.print("\nThere are no teachers available to assign");
+        } else {
+            database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.TEACHER)
+                    .forEach(System.out::println);
+            System.out.print("\nSelect a lecturer id: ");
+            lecturerId = getLecturerId(in);
+        }
+        System.out.print("\nNumber of courses: ");
+        int totalNr = Integer.parseInt(getTotalNumber(in));
+
+        database.getCourses().add(new Course(courseId, subject, lecturerId, totalNr));
     }
 
     private void editUser(String userId){
@@ -140,10 +193,18 @@ public class Administrator extends User {
         viewUsersCommands();
     }
 
+    private void editCourse(String courseId){
+
+    }
+
     private void removeUser(String userId){
         database.getUsers().removeIf(user -> user.getId().equals(userId));
         System.out.println("User " + userId + " has been removed");
         viewUsersCommands();
+    }
+
+    private void removeCourse(String courseId){
+
     }
 
     private String getUsername(Scanner in){
@@ -154,7 +215,7 @@ public class Administrator extends User {
 
         while(!isValidUsername){
             username = in.nextLine();
-            if(username.matches(pattern) && isUnique(username)){
+            if(username.matches(pattern) && isUniqueUsername(username)){
                 isValidUsername = true;
             } else System.out.println("\nInvalid username! Please try again");
         }
@@ -210,8 +271,62 @@ public class Administrator extends User {
         return userId;
     }
 
-    private boolean isUnique(String username){
+    private String getSubject(Scanner in){
+
+        boolean isValidSubject = false;
+        String subject = "";
+        String pattern = "(.*[a-zA-Z]){4}.*";
+
+        while(!isValidSubject){
+            subject = in.nextLine();
+            if(subject.matches(pattern) && isUniqueSubject(subject)){
+                isValidSubject = true;
+            } else System.out.println("\nInvalid subject format! Please try again");
+        }
+
+        return subject;
+    }
+
+    private String getLecturerId(Scanner in){
+
+        boolean isValidId = false;
+        String lecturerId = "";
+
+        while(!isValidId){
+            lecturerId = in.nextLine();
+            String finalUserId = lecturerId;
+            if(database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.TEACHER)
+                                            .anyMatch(user -> user.getId().equals(finalUserId))){
+                isValidId = true;
+            } else System.out.println("\nInvalid lecturer id! Please select a lecturer that exists");
+        }
+
+        return lecturerId;
+    }
+
+    private String getTotalNumber(Scanner in){
+
+        boolean isValidNumber = false;
+        String total = "";
+        String pattern = "\\d{1,2}";
+
+        while(!isValidNumber){
+            total = in.nextLine();
+            int totalNr = Integer.parseInt(total);
+            if(total.matches(pattern) && (totalNr > 0 && totalNr <= 20)){
+                isValidNumber = true;
+            } else System.out.println("Invalid number of courses! Please try again");
+        }
+
+        return total;
+    }
+
+    private boolean isUniqueUsername(String username){
         return database.getUsers().stream().noneMatch(user -> user.getUsername().equals(username));
+    }
+
+    private boolean isUniqueSubject(String subject){
+        return database.getCourses().stream().noneMatch(course -> course.getSubject().equals(subject));
     }
 
     private void editUsername(String userId, Scanner in){
@@ -255,4 +370,5 @@ public class Administrator extends User {
     private void viewEditCommands(){
         System.out.println("\n1. Edit username\n2. Edit password\n3. Edit access level\n4. Return to previous menu");
     }
+
 }
