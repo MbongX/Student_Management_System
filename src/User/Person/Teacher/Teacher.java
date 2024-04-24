@@ -7,6 +7,6 @@ public class Teacher extends Person {
     // Methods
     public void viewStudent(Student student) {
         System.out.println(STR."// Student detail of \{student.getUsername()} //");
-
+        // Testing PR
     }
 }
