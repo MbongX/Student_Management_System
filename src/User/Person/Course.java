@@ -1,6 +1,6 @@
 package User.Person;
 
-import User.Admin.Database;
+import User.Admin.Database.Database;
 import User.Person.Student.Student;
 import User.Person.Teacher.Teacher;
 import User.User;
