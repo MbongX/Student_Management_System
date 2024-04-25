@@ -96,7 +96,7 @@ public class User{
     }
 
 
-    boolean isNameValid(String name) {
+    boolean isUsernameValid(String name) {
         // Implement your validation logic here
         // For example, check if the name contains only letters and spaces
         return name.matches("[a-zA-Z ]+");
@@ -117,7 +117,7 @@ public class User{
         }
         if(strLen>0)
         {
-            if(!isNameValid(vNameInput))
+            if(!isUsernameValid(vNameInput))
             {
                 errorMessage = "Invalid name format please try again!";
                 valid = false;
