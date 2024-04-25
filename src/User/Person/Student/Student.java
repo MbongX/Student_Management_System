@@ -46,8 +46,8 @@ public class Student extends Person {
     }
 
     public void joinCourse(Course course){
-        this.getAvailableCourses().add(course);
-        course.getStudentAttendances().put(this, 0);
+        this.getAvailableCourses().add(course.getCourseId());
+        course.getStudentAttendances().put(getId(), 0);
     }
 
 }

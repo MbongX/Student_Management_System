@@ -6,14 +6,16 @@ import User.Person.Teacher.Teacher;
 import User.User;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Course {
     private String courseId;
     private String subject;
     private String lecturerId;
-    private HashMap<Student, Integer> studentAttendances = new HashMap<>();
+    private HashMap<String, Integer> studentAttendances = new HashMap<>();
     private int totalNumber;
     private Database database = Database.getInstance();
 
@@ -48,11 +50,11 @@ public class Course {
         this.lecturerId = lecturerId;
     }
 
-    public HashMap<Student, Integer> getStudentAttendances() {
+    public HashMap<String, Integer> getStudentAttendances() {
         return studentAttendances;
     }
 
-    public void setStudentAttendances(HashMap<Student, Integer> studentAttendances) {
+    public void setStudentAttendances(HashMap<String, Integer> studentAttendances) {
         this.studentAttendances = studentAttendances;
     }
 
@@ -74,11 +76,21 @@ public class Course {
         return lecturer;
     }
 
+    public List<Student> getStudentsByIds() {
+        List<User> allUsers = database.getUsers();
+
+        return allUsers.stream()
+                .filter(user -> studentAttendances.containsKey(user.getId()))
+                .map(user -> (Student) user)
+                .collect(Collectors.toList());
+    }
+
+
     @Override
     public String toString() {
 
         StringBuilder builder = new StringBuilder();
-        builder.append("\nSubject: ").append(subject);
+        builder.append("\nId: ").append(courseId).append("\nSubject: ").append(subject);
 
         Teacher lecturer = getLecturerById();
         if(lecturer != null){
@@ -86,10 +98,13 @@ public class Course {
         } else builder.append("\nNo teacher was assigned");
 
         builder.append("\nTotal number of courses: ")
-                .append(totalNumber).append("\n\n---Student list---");
+                .append(totalNumber);
+        if(!getStudentsByIds().isEmpty()){
+            builder.append("\n\n---Student list---");
+        }
 
-        for(Map.Entry<Student, Integer> entry: studentAttendances.entrySet()){
-            builder.append("\n").append(entry.getKey().getName());
+        for(Student student: getStudentsByIds()){
+            builder.append("\n").append(student.getName());
         }
         return builder.toString();
     }
