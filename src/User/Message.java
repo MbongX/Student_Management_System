@@ -4,6 +4,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class Message extends User{
 
-    public Message() throws NoSuchAlgorithmException {
+    public Message() {
     }
 }
