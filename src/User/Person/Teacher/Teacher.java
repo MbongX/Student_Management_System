@@ -2,7 +2,6 @@ package User.Person.Teacher;
 
 import User.Person.Person;
 import User.Person.Student.Student;
-import java.security.NoSuchAlgorithmException;
 
 import static java.lang.StringTemplate.STR;
 
