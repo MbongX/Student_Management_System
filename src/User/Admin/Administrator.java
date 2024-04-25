@@ -1,5 +1,6 @@
 package User.Admin;
 
+import User.Admin.Database.Database;
 import User.User;
 import User.AccessLevel;
 
@@ -13,7 +14,7 @@ public class Administrator extends User {
     @Override
     public void start(){
 
-        System.out.println("You are an administrator. You can select the following options:");
+        System.out.println("\nYou are an administrator. You can select the following options:");
         System.out.println("1. Users\n2. Courses\n3. System\n4. Log out");
         boolean isLoggedOut;
         Scanner in = new Scanner(System.in);
@@ -186,7 +187,7 @@ public class Administrator extends User {
         while(!isValid){
             accessLevel = in.nextLine();
             if(accessLevel.equalsIgnoreCase("Student") || accessLevel.equalsIgnoreCase("Teacher")
-            || accessLevel.equalsIgnoreCase("Admin")){
+                    || accessLevel.equalsIgnoreCase("Admin")){
                 isValid = true;
             } else System.out.println("\nInvalid access level! Please try again");
         }
@@ -219,7 +220,7 @@ public class Administrator extends User {
         String username = getUsername(in);
 
         database.getUsers().stream().filter(user -> user.getId().equals(userId))
-                                    .forEach(user -> user.setUsername(username));
+                .forEach(user -> user.setUsername(username));
         System.out.println("User " + userId + " updated successfully!");
         viewEditCommands();
     }
@@ -229,7 +230,7 @@ public class Administrator extends User {
         String password = getPassword(in);
 
         database.getUsers().stream().filter(user -> user.getId().equals(userId))
-                                    .forEach(user -> user.setPassword(password));
+                .forEach(user -> user.setPassword(password));
         System.out.println("User " + userId + " updated successfully!");
         viewEditCommands();
     }
@@ -239,7 +240,7 @@ public class Administrator extends User {
         AccessLevel accessLevel = AccessLevel.fromString(getAccessLevel(in));
 
         database.getUsers().stream().filter(user -> user.getId().equals(userId))
-                                    .forEach(user -> user.setTypeAccess(accessLevel));
+                .forEach(user -> user.setTypeAccess(accessLevel));
         System.out.println("User " + userId + " updated successfully!");
         viewEditCommands();
     }
