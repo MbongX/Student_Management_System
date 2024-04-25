@@ -10,57 +10,63 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.Console;
 
-public class User{
+public class User {
     //fields/attributes
-    String id = "",username = "",password = "",errorMessage = "";
-    AccessLevel typeAccess;
+    String id, username, password, errorMessage;
+    String inUsername, inPassword;
+    boolean valid, validUsername, validPassword, loggedIn;
+    char[] cPassword;
     ArrayList<Message> messagess;
-    boolean valid;
+    AccessLevel typeAccess;
     Scanner in = new Scanner(System.in);
     Console console = System.console();
-    
-    
-    //getters and setters
 
+    //getters and setters
     public String getId() {
-         return id;
+        return id;
     }
+
     public String getUsername() {
         return username;
     }
-    public void setUsername(String username) { 
-        this.username = username; 
+
+    public void setUsername(String username) {
+        this.username = username;
     }
+
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
-        this.password = password; 
+        this.password = password;
     }
+
     public AccessLevel getTypeAccess() {
         return typeAccess;
     }
+
     public void setTypeAccess(AccessLevel typeAccess) {
-        this.typeAccess = typeAccess; 
+        this.typeAccess = typeAccess;
     }
+
     public ArrayList<Message> getMessagess() {
         return messagess;
     }
+
     public String getErrorMessage() {
         return errorMessage;
     }
+
     public void setErrorMessage(String newErrorMessage) {
         this.errorMessage = newErrorMessage;
     }
 
-    // Setter
-
-
-    //Constructors
-    public User(){
-
+    //Constructurs
+    public User() {
+        inPassword = "";
+        inUsername = "";
     }
-
     public User(String id, String username, String password, AccessLevel typeAccess) {
         this.id = id;
         this.username = username;
@@ -69,118 +75,209 @@ public class User{
     }
 
     //methods
-
-    public void start(){
-
+    public void start() {
         System.out.println("//////////////////////////////////////////////////////////////");
         System.out.println("//               Student Management System                  //");
         System.out.println("//////////////////////////////////////////////////////////////");
         //System.out.println("Login:");
+        System.out.println("Please enter your Username and Password:\nNote: Password should meet the below criteria : \n-Should be at least 6 characters \n-Should including at least 1 lowercase \n-Should include at least 1 uppercase \n-Should contain at least 1 digit \n-Should contain at least one special character");
 
-        System.out.println("Please enter your username and password:\nNote: Password should be at least 6 characters, including lowercase, uppercase, digits and at least one special character");
+        do {
+            //validate Username
+            if (!validateUsername(inUsername)) {
+                do {
+                    System.out.print("Enter username:");
+                    inUsername = in.nextLine();
 
-        do{
-            System.out.println("Username:");
-            username = in.nextLine();
-            //validate username
-            if(username.equals("")){
-
+                    if (!validateUsername(inUsername)) {
+                        //print out error message
+                        System.out.println(getErrorMessage());
+                        //flag as invalid
+                        validUsername = false;
+                    } else {
+                        //set the Username
+                        setUsername(inUsername);
+                        //flag as valid
+                        validUsername = true;
+                    }
+                }
+                while (!validateUsername(inUsername));
             }
-            // password masking implementation
-            Console console = System.console();
-            char[] passwordChars = console.readPassword("Enter your password: ");
-            password = new String(passwordChars);
-            Arrays.fill(passwordChars, ' ');
+            do {
+                System.out.print("Enter password:");
+                cPassword = console.readPassword();
+                if (console == null) {
+                    System.out.println("Exiting , console not available");
+                    System.exit(1);
+                }
+
+                //Create a StringBuffer object to use when building the cPassword string from the cPassword array
+                StringBuilder sb = new StringBuilder();
+
+                //iterate through the char array using a for-each loop
+                for (char x : cPassword) {
+                    //append each char into the stringBuilder variable
+                    sb.append(x);
+                }
+                //convert the StringBuffer to a string
+                inPassword = sb.toString();
+
+                //validate Password
+                if (!validatePassword(inPassword)) {
+                    //set flag outcome
+                    validPassword = false;
+                    //print out error message
+                    System.out.println(getErrorMessage());
+
+                } else {
+                    if (validatePassword(inPassword)) {
+                        //hash and set the password
+                        hashPasscode(inPassword);
+                    }
+                }
+            }
+            while (!validatePassword(inPassword));
         }
-        while(username.equals("") || password.equals(""));
+        while (!validUsername || !validPassword);
+        System.out.println("Attempting to login ...");
+        login(getUsername(), getPassword());
     }
 
-
-    boolean isUsernameValid(String name) {
-        // Implement your validation logic here
-        // For example, check if the name contains only letters and spaces
-        return name.matches("[a-zA-Z ]+");
-
+    boolean isUsernameValid(String username) {
+        //using a regex pattern to validate the username content
+        return username.matches("^[a-zA-Z0-9]+$");
     }
-    
-    boolean validateUsername(String vNameInput)
-    {
 
-        //get the string length
-        int strLen = vNameInput.trim().length();
+    boolean isPasswordValid(String password) {
+        return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$");
+    }
 
-        //Validate string from User Input
-        if(strLen == 0)
-        {
-            errorMessage = "Name cannot be empty!, Please try again";
+    boolean validatePassword(String password) {
+        //get string length
+        int strLen = password.length();
+
+        if (password.isEmpty()) {
+            setErrorMessage("Password cannot be empty or les than 6 characters!");
             valid = false;
         }
-        if(strLen>0)
-        {
-            if(!isUsernameValid(vNameInput))
-            {
-                errorMessage = "Invalid name format please try again!";
+        if (strLen <= 6) {
+            setErrorMessage("Password cannot be empty or les than 6 characters!");
+            valid = false;
+        } else {
+            if (isPasswordValid(password)) {
+                valid = true;
+            }
+            if (!isPasswordValid(password)) {
+                setErrorMessage("Invalid password format!");
                 valid = false;
             }
-            else
-            {
+        }
+        return valid;
+    }
+
+
+    boolean validateUsername(String vUsername) {
+        //get the string length
+        int strLen = vUsername.trim().length();
+
+        //Validate string from User Input
+        if (strLen == 0) {
+            errorMessage = "Username cannot be empty!, Please try again";
+            valid = false;
+        }
+        if (strLen > 0) {
+            if (!isUsernameValid(vUsername)) {
+                errorMessage = "Invalid name format please try again!";
+                valid = false;
+            } else {
                 valid = true;
             }
         }
         return valid;
     }
-    
-    public boolean login(String username, String password)
-    {
-        
+
+    String enhanceHashString(String hashKey) {
+
+        String newHash, splitHash1, splitHash2;
+        //Get string length and divisor value
+        int strLen = hashKey.length(), divisor = strLen / 2;
+
+        //divide the hashkey into 2 parts by using the divisor
+        splitHash1 = hashKey.substring(0, divisor);
+        //System.out.println(splitHash1);
+        splitHash2 = hashKey.substring(divisor);
+        //System.out.println(splitHash2);
+
+        //inverse the string using the reverse function provided by the StringBuilder Class
+        StringBuilder reverseString1 = new StringBuilder(splitHash1).reverse();
+        StringBuilder reverseString2 = new StringBuilder(splitHash2).reverse();
+
+        //combine the new hashkeys
+        newHash = reverseString1.toString().concat(reverseString2.toString());
+        //System.out.println(newHash);
+        //return new hash
+        return newHash;
+    }
+
+    public boolean login(String username, String password) {
+        //given both username and password have been set and validated
+        //Open connection to Database
+        //perform validation of db credentials aginst local credentials to flagging it as succussfully logged in
+        validateCredentials(getPassword(), getPassword());
+        //retrieve access type
+
         return false;
     }
-    public void hashPasscode(String password){
-        
+
+    public void hashPasscode(String hashPasscode) {
+        //encrypt password before setting it on the password variable
+        try { //try-catch block to cater for hashing/encryption exception
+
+            // Create a new MessageDigest object to enable encryption, returned hash value is a byte array| Can look into surrounding the below statement with a try-catch block
+            MessageDigest digestPassword = MessageDigest.getInstance("SHA-256");
+
+            //Storing the hash value within a byte array
+            byte[] encodedHash = digestPassword.digest(hashPasscode.getBytes(StandardCharsets.UTF_8));
+
+            //converting the byte array into a string via StringBuffer
+            StringBuilder hashString = new StringBuilder();
+
+            for (byte b : encodedHash) {
+                String hash = Integer.toHexString(0xff & b);
+                if (hash.length() == 1) {
+                    hashString.append('0');
+                }
+                hashString.append(hash);
+            }
+            //assign new string into the hashpassword attribute
+            String hashPassword = hashString.toString();
+
+            //encrypt string before setting into the string attribute
+            setPassword(enhanceHashString(hashPassword));
+            //System.out.println(password);
+            validPassword = true;
+
+        } catch (NoSuchAlgorithmException e) {
+            System.err.println("Error: algorithm not available.");
+            //on excepection Call ToPrintStackTrace
+            e.printStackTrace();
+            setErrorMessage(e.getMessage());
+        }
     }
-    boolean validateCredentials( String username, String password)
-    {
+
+    boolean validateCredentials(String username, String password) {
         // Note : This method will perform validation of the credentials against a db like system
-        boolean valid = false;  //default value
-        
-        if(username.equals("") || password.equals(""))
-        {
-            if(username.equals("") && password.equals(""))
-            {
-                errorMessage ="Username and password are required";
-                valid = false;
-            }
-            else {
-                switch (username) {
-                    case "":
-                        setErrorMessage("Username cannot be empty");
-                        valid = false;
-                        break;
-                }
-                switch (password) {
-                    case "":
-                        setErrorMessage("Password cannot be empty");
-                        valid = false;
-                        break;
-                }
-            }
-        }
-        else{
-            if(username.trim().length() > 0 && password.trim().length() > 0)
-            {
-                
-            }
-        }
-        
+        loggedIn = false;  //default value
+
         return valid;
     }
-    public void sendMessage(Message message)
-    {
-        
+
+    public void sendMessage(Message message) {
+
     }
-    public void viewMessage(Message message)
-    {
-        
+
+    public void viewMessage(Message message) {
+
     }
 
     @Override
