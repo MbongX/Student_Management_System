@@ -1,7 +1,6 @@
 package User.Person;
 
 import User.User;
-
 import java.util.ArrayList;
 import java.util.Date;
 
