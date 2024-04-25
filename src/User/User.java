@@ -67,9 +67,15 @@ public class User {
         inPassword = "";
         inUsername = "";
     }
+    public User(String id, String username, String password, AccessLevel typeAccess) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.typeAccess = typeAccess;
+    }
 
     //methods
-    public void startProgram() {
+    public void start() {
         System.out.println("//////////////////////////////////////////////////////////////");
         System.out.println("//               Student Management System                  //");
         System.out.println("//////////////////////////////////////////////////////////////");
@@ -272,5 +278,10 @@ public class User {
 
     public void viewMessage(Message message) {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + id + "\nUsername: " + username + "\nPassword: " + password + "\nTypeAccess: " + typeAccess;
     }
 }
