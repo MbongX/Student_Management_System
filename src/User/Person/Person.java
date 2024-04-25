@@ -1,8 +1,6 @@
 package User.Person;
 
 import User.User;
-
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
 
