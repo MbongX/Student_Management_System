@@ -1,4 +1,17 @@
 package User.Person.Teacher;
 
-public class Teacher {
+import User.Person.Person;
+import User.Person.Student.Student;
+
+import static java.lang.StringTemplate.STR;
+
+public class Teacher extends Person  {
+
+
+    // Methods
+    public void viewStudent(Student student) {
+        System.out.println(STR."// Student detail of \{student.getUsername()} //");
+
+    }
 }
+
