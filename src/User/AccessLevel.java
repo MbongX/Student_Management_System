@@ -1,10 +1,15 @@
 package User;
 
-import java.security.PrivateKey;
+public enum AccessLevel{
+    ADMINISTRATOR,STUDENT,TEACHER;
 
-public class AccessLevel extends User {
-    public enum AccessLevels {
-        ADMINISTRATOR,STUDENT,TEACHER
+    public static AccessLevel fromString(String accessLevel){
 
+        if(accessLevel.equalsIgnoreCase("Student")){
+            return STUDENT;
+        } else if(accessLevel.equalsIgnoreCase("Teacher")){
+            return TEACHER;
+        } else return ADMINISTRATOR;
     }
+
 }

@@ -1,7 +1,6 @@
 package User.Person;
 
 import User.User;
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,7 +10,7 @@ public class Person extends User {
     private Date dateOfBirth;
     private String address;
     private String telephone;
-    private ArrayList<Course> availableCourses = new ArrayList<>();
+    private ArrayList<String> availableCourses = new ArrayList<>();
     private PersonBuilder personBuilder = new PersonBuilder();
 
     public Person() {
@@ -100,11 +99,11 @@ public class Person extends User {
         this.telephone = telephone;
     }
 
-    public ArrayList<Course> getAvailableCourses() {
+    public ArrayList<String> getAvailableCourses() {
         return availableCourses;
     }
 
-    public void setAvailableCourses(ArrayList<Course> availableCourses) {
+    public void setAvailableCourses(ArrayList<String> availableCourses) {
         this.availableCourses = availableCourses;
     }
 }

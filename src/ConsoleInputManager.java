@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.StringTemplate.STR;
+
 public class ConsoleInputManager {
     private static final Scanner scanner = new Scanner(System.in);
     public static List<Course> courses = new ArrayList<>();
@@ -35,7 +37,7 @@ public class ConsoleInputManager {
     private static void displayCommands(CommandsManager commandsManager) {
         System.out.println("Commands available:");
         for (Command command : commandsManager.getCommands()) {
-            System.out.println(STR."\{command.getCommandNumber()} - \{command.getCommandName()}");
+            System.out.println(STR."\{command.getCommandNumber()} - \{command.getCommandName()}"); //this feature is enabled on jdk 22 Preview else it is disabled on jdk 22
         }
     }
 

@@ -2,14 +2,18 @@ package User.Person.Teacher;
 
 import User.Admin.Database;
 import User.Person.Course;
+import User.Person.Person;
 import User.Person.Student.Student;
 import User.User;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Teacher extends User {
+import static java.lang.StringTemplate.STR;
+
+public class Teacher extends Person {
     Scanner in = new Scanner(System.in);
     Database database = Database.getInstance();
 
@@ -97,13 +101,17 @@ public class Teacher extends User {
         // course.setStudentAttendances(studentId);
     }
 
+    //Sergiu here - I changed the hashMap structure to have the student id (userId) as the key
+    // in the Course class, so I had to change this method as well
     private void generateAttendanceReport(String courseId) {
         Course course = database.getCourses().get(Integer.parseInt(courseId));
-        HashMap<Student, Integer> map = course.getStudentAttendances();
-        for (Map.Entry<Student, Integer> entry : map.entrySet()) {
-            System.out.println(STR."\{entry.getKey().getName()} : \{entry.getValue()}\n");
-        }
+        HashMap<String, Integer> map = course.getStudentAttendances();
+        List<Student> students = course.getStudentsByIds();
 
+        System.out.println(STR."\nCourse - \{course.getSubject()}\n");
+        for(Student student: students){
+            System.out.println(STR."\{student.getName()} : \{map.get(student.getId())}");
+        }
     }
 
     // Choice 3

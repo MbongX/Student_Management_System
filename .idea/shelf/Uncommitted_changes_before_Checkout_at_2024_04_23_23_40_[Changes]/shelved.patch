@@ -1,0 +1,191 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c9f34f90-f8ad-45e5-9654-28a4f7c111e1\" name=\"Changes\" comment=\"Pushing changes made during the codeTogether Live session\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/StudentManagementSystem.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/StudentManagementSystem.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/User/AccessLevel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/User/AccessLevel.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/User/Message.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/User/Message.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/User/User.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/User/User.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"SET_USER_NAME_GLOBALLY\" value=\"false\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;MbongX&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/MbongX/Student_Management_System.git&quot;,\r\n    &quot;accountId&quot;: &quot;009be723-4311-42c5-8d6b-58d156f40ae0&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fL6RWYFofItdBbc92StMuWMffu\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Mbong/IdeaProjects/StudentManagementSystem/src/Main.java&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"StudentManagementSystem\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c9f34f90-f8ad-45e5-9654-28a4f7c111e1\" name=\"Changes\" comment=\"\" />\r\n      <created>1713568004772</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1713568004772</updated>\r\n      <workItem from=\"1713568005848\" duration=\"12654000\" />\r\n      <workItem from=\"1713616069926\" duration=\"1713000\" />\r\n      <workItem from=\"1713622105385\" duration=\"3006000\" />\r\n      <workItem from=\"1713625773790\" duration=\"1267000\" />\r\n      <workItem from=\"1713627113386\" duration=\"513000\" />\r\n      <workItem from=\"1713627640042\" duration=\"2524000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Initial push of partially combined project code\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713624877771</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713624877771</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Initial push of partially combined project code to develop branch\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713625914220</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713625914220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Initial push of partially combined project code to develop branch\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713626102559</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713626102559</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Pushing changes made during the codeTogether Live session\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713633716630</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713633716630</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Initial push of partially combined project code\" />\r\n    <MESSAGE value=\"Initial push of partially combined project code to develop branch\" />\r\n    <MESSAGE value=\"Pushing changes made during the codeTogether Live session\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Pushing changes made during the codeTogether Live session\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/User/User.java</url>\r\n          <line>150</line>\r\n          <option name=\"timeStamp\" value=\"5\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/User/User.java</url>\r\n          <line>118</line>\r\n          <option name=\"timeStamp\" value=\"6\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/User/User.java</url>\r\n          <line>78</line>\r\n          <option name=\"timeStamp\" value=\"12\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/User/User.java</url>\r\n          <line>77</line>\r\n          <option name=\"timeStamp\" value=\"13\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/User/User.java</url>\r\n          <line>73</line>\r\n          <option name=\"timeStamp\" value=\"14\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/User/User.java</url>\r\n          <line>95</line>\r\n          <option name=\"timeStamp\" value=\"15\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/User/User.java</url>\r\n          <line>147</line>\r\n          <option name=\"timeStamp\" value=\"16\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/src/User/User.java</url>\r\n          <line>197</line>\r\n          <properties class=\"User.User\" method=\"hashPasscode\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n            <option name=\"WATCH_EXIT\" value=\"false\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"19\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,12 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Pushing changes made during the codeTogether Live session">
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/StudentManagementSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StudentManagementSystem.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/User/AccessLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/AccessLevel.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/User/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/Message.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/User.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -55,31 +50,31 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
+-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Mbong/IdeaProjects/StudentManagementSystem/src/Main.java&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.Main.executor": "Run",
++    "Downloaded.Files.Path.Enabled": "false",
++    "Repository.Attach.Annotations": "false",
++    "Repository.Attach.JavaDocs": "false",
++    "Repository.Attach.Sources": "false",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "git-widget-placeholder": "develop",
++    "ignore.virus.scanning.warn.message": "true",
++    "kotlin-language-version-configured": "true",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "onboarding.tips.debug.path": "C:/Users/Mbong/IdeaProjects/StudentManagementSystem/src/Main.java",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "settings.sync",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="Main" />
+@@ -94,6 +89,14 @@
+       </list>
+     </recent_temporary>
+   </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
++        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
++      </set>
++    </attachedChunks>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -108,6 +111,9 @@
+       <workItem from="1713625773790" duration="1267000" />
+       <workItem from="1713627113386" duration="513000" />
+       <workItem from="1713627640042" duration="2524000" />
++      <workItem from="1713894448895" duration="598000" />
++      <workItem from="1713900731646" duration="1285000" />
++      <workItem from="1713905387034" duration="1904000" />
+     </task>
+     <task id="LOCAL-00001" summary="Initial push of partially combined project code">
+       <option name="closed" value="true" />
+@@ -169,42 +175,42 @@
+       <breakpoints>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/User/User.java</url>
+-          <line>150</line>
++          <line>148</line>
+           <option name="timeStamp" value="5" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/User/User.java</url>
+-          <line>118</line>
++          <line>116</line>
+           <option name="timeStamp" value="6" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/User/User.java</url>
+-          <line>78</line>
++          <line>76</line>
+           <option name="timeStamp" value="12" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/User/User.java</url>
+-          <line>77</line>
++          <line>75</line>
+           <option name="timeStamp" value="13" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/User/User.java</url>
+-          <line>73</line>
++          <line>71</line>
+           <option name="timeStamp" value="14" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/User/User.java</url>
+-          <line>95</line>
++          <line>93</line>
+           <option name="timeStamp" value="15" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/User/User.java</url>
+-          <line>147</line>
++          <line>145</line>
+           <option name="timeStamp" value="16" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-method">
+           <url>file://$PROJECT_DIR$/src/User/User.java</url>
+-          <line>197</line>
++          <line>195</line>
+           <properties class="User.User" method="hashPasscode">
+             <option name="EMULATED" value="true" />
+             <option name="WATCH_EXIT" value="false" />
+Index: src/User/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package User;\r\n\r\nimport org.jetbrains.annotations.NotNull;\r\n\r\nimport java.nio.charset.StandardCharsets;\r\nimport java.security.MessageDigest;\r\nimport java.security.NoSuchAlgorithmException;\r\nimport java.util.ArrayList;\r\nimport java.util.Scanner;\r\nimport java.io.Console;\r\n\r\npublic class User{\r\n    //fields/attributes\r\n    String id = \"\",username = \"\",password = \"\",errorMessage = \"\";\r\n    AccessLevel typeAccess;\r\n    ArrayList<Message> messagess;\r\n    boolean valid;\r\n    Scanner in = new Scanner(System.in);\r\n    Console console = System.console();\r\n    \r\n    \r\n    //getters and setters\r\n\r\n    public String getId() {\r\n         return id;\r\n    }\r\n    public String getUsername() {\r\n        return username;\r\n    }\r\n    public void setUsername(String username) { \r\n        this.username = username; \r\n    }\r\n    public String getPassword() {\r\n        return password;\r\n    }\r\n    public void setPassword(String password) {\r\n        this.password = password; \r\n    }\r\n    public AccessLevel getTypeAccess() {\r\n        return typeAccess;\r\n    }\r\n    public void setTypeAccess(AccessLevel typeAccess) {\r\n        this.typeAccess = typeAccess; \r\n    }\r\n    public ArrayList<Message> getMessagess() {\r\n        return messagess;\r\n    }\r\n    public String getErrorMessage() {\r\n        return errorMessage;\r\n    }\r\n    public void setErrorMessage(String newErrorMessage) {\r\n        this.errorMessage = newErrorMessage;\r\n    }\r\n    \r\n    \r\n    // Setter\r\n\r\n\r\n    //Constructurs\r\n    public User() throws NoSuchAlgorithmException {\r\n        \r\n        String inUsername = \"\",inPassword = \"\";\r\n        char[] cPassword;\r\n        boolean validUsername = false;\r\n        boolean validPassword = false;\r\n        \r\n        \r\n        System.out.println(\"//////////////////////////////////////////////////////////////\");\r\n        System.out.println(\"//               Student Management System                  //\");\r\n        System.out.println(\"//////////////////////////////////////////////////////////////\");\r\n        //System.out.println(\"Login:\");\r\n        System.out.println(\"Please enter your Username and Password:\\nNote: Password should be at least 6 characters, including lowercase, uppercase, digits and at least one special character\");\r\n        \r\n        do{\r\n\r\n            \r\n            //validate inUsername\r\n            if(validateUsername(inUsername) == false){\r\n                do {\r\n                    System.out.println(\"Username:\");\r\n                    inUsername = in.nextLine();\r\n                    \r\n                    if(validateUsername(inUsername) == false) {\r\n                        //print out error message\r\n                        System.out.println(getErrorMessage());\r\n                        //flag as invalid\r\n                        validUsername = false;\r\n                    }else{\r\n                        //set the Username\r\n                        setUsername(inUsername);\r\n                        //flag as valid\r\n                        validUsername = true;\r\n                    }\r\n                }\r\n                while(validateUsername(inUsername) == false);\r\n            }\r\n            do {\r\n                System.out.println(\"Password:\");\r\n\r\n                cPassword = console.readPassword();\r\n                if (console == null) {\r\n                    System.out.println(\"Exiting , console not available\");\r\n                    System.exit(1);\r\n                }\r\n\r\n                //Create a StringBuffer object to use when building the cPassword string from the cPassword array\r\n                StringBuffer sb = new StringBuffer();\r\n\r\n                //iterate through the char array using a for-each loop\r\n                for (char x : cPassword) {\r\n                    //append each char into the stringbuffer variable\r\n                    sb.append(x);\r\n                }\r\n                //convert the StringBuffer to a string\r\n                inPassword = sb.toString();\r\n\r\n                //validate Password\r\n                if (validatePassword(inPassword) != true) {\r\n                    System.out.println(getErrorMessage());\r\n                    validPassword = false;\r\n                } \r\n                if (validatePassword(inPassword)){\r\n                    //encrypt password before setting it on the password variable\r\n\r\n                    // Create a new MessageDigest object to enable encryption, returned hash value is a byte array| Can look into surrounding the velow statement with a try-catch block\r\n                    MessageDigest digestPassword = MessageDigest.getInstance(\"SHA-256\");\r\n\r\n                    //Storing the hash value within a byte array\r\n                    byte[] encodedHash = digestPassword.digest(password.getBytes(StandardCharsets.UTF_8));\r\n\r\n                    //converting the byte array into a string via StringBuffer\r\n                    StringBuffer hashString = new StringBuffer();\r\n\r\n                    for (byte b : encodedHash) {\r\n                        String hash = Integer.toHexString(0xff & b);\r\n                        if (hash.length() == 1) {\r\n                            hashString.append('0');\r\n                        }\r\n                        hashString.append(hash);\r\n\r\n                        hashString.append(hash);\r\n                    }\r\n                    password = hashString.toString();\r\n                    System.out.println(password);\r\n                    validPassword = true;\r\n                }\r\n            }\r\n            while(validatePassword(inPassword) == false);\r\n            \r\n        }\r\n        while(validUsername == false || validPassword == false);\r\n    }\r\n\r\n    //methods\r\n    boolean isUsernameValid(@org.jetbrains.annotations.NotNull String username){\r\n        //extract code from classes.rar\r\n        String pattern = \"^[a-zA-Z0-9]+$\";\r\n        return username.matches(pattern);\r\n    }\r\n    \r\n    boolean validatePassword(String password){\r\n        String pattern = \"^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)(?=.*[@$!%*?&])[A-Za-z\\\\d@$!%*?&]{6,}$\";\r\n        return password.matches(pattern);\r\n    }\r\n    \r\n    boolean validateUsername(String vNameInput)\r\n    {\r\n\r\n        //get the string length\r\n        int strLen = vNameInput.trim().length();\r\n\r\n        //Validate string from User Input\r\n        if(strLen == 0)\r\n        {\r\n            errorMessage = \"Name cannot be empty!, Please try again\";\r\n            valid = false;\r\n        }\r\n        if(strLen>0)\r\n        {\r\n            if(!isUsernameValid(vNameInput))\r\n            {\r\n                errorMessage = \"Invalid name format please try again!\";\r\n                valid = false;\r\n            }\r\n            else\r\n            {\r\n                valid = true;\r\n            }\r\n        }\r\n        return valid;\r\n    }\r\n    \r\n    public boolean login(String username, String password)\r\n    {\r\n        \r\n        return false;\r\n    }\r\n    public void hashPasscode(String password){\r\n        \r\n    }\r\n    boolean validateCredentials(@NotNull String username,@NotNull String password)\r\n    {\r\n        // Note : This method will perform validation of the credentials against a db like system\r\n        boolean valid = false;  //default value\r\n        \r\n        if(username.equals(\"\") || password.equals(\"\"))\r\n        {\r\n            if(username.equals(\"\") && password.equals(\"\"))\r\n            {\r\n                errorMessage =\"Username and password are required\";\r\n                valid = false;\r\n            }\r\n            else {\r\n                switch (username) {\r\n                    case \"\":\r\n                        setErrorMessage(\"Username cannot be empty\");\r\n                        valid = false;\r\n                        break;\r\n                }\r\n                switch (password) {\r\n                    case \"\":\r\n                        setErrorMessage(\"Password cannot be empty\");\r\n                        valid = false;\r\n                        break;\r\n                }\r\n            }\r\n        }\r\n        else{\r\n            if(username.trim().length() > 0 && password.trim().length() > 0)\r\n            {\r\n                \r\n            }\r\n        }\r\n        \r\n        return valid;\r\n    }\r\n    public void sendMessage(Message message)\r\n    {\r\n        \r\n    }\r\n    public void viewMessage(Message message)\r\n    {\r\n        \r\n    }\r\n}\r\n//template classes\r\n// Vlad you can also join the audio call so we can communicate efficiently\r\n// Thank you
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/User/User.java b/src/User/User.java
+--- a/src/User/User.java	
++++ b/src/User/User.java	
+@@ -1,7 +1,5 @@
+ package User;
+ 
+-import org.jetbrains.annotations.NotNull;
+-
+ import java.nio.charset.StandardCharsets;
+ import java.security.MessageDigest;
+ import java.security.NoSuchAlgorithmException;
+@@ -152,7 +150,7 @@
+     }
+ 
+     //methods
+-    boolean isUsernameValid(@org.jetbrains.annotations.NotNull String username){
++    boolean isUsernameValid( String username){
+         //extract code from classes.rar
+         String pattern = "^[a-zA-Z0-9]+$";
+         return username.matches(pattern);
+@@ -198,7 +196,7 @@
+     public void hashPasscode(String password){
+         
+     }
+-    boolean validateCredentials(@NotNull String username,@NotNull String password)
++    boolean validateCredentials( String username, String password)
+     {
+         // Note : This method will perform validation of the credentials against a db like system
+         boolean valid = false;  //default value
