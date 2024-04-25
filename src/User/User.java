@@ -280,8 +280,7 @@ public class User {
 
     }
 
-    @Override
-    public String toString() {
+    public String toStringUser() {
         return "Id: " + id + "\nUsername: " + username + "\nPassword: " + password + "\nTypeAccess: " + typeAccess;
     }
 }

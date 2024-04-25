@@ -1,6 +1,7 @@
 package User.Person.Student;
 
 
+import User.AccessLevel;
 import User.Person.Course;
 import User.Person.Person;
 
@@ -11,6 +12,14 @@ import java.util.Map;
 public class Student extends Person {
     private HashMap<Course, ArrayList<Assignment>> marks = new HashMap<>();
     private HashMap<Course, Double> overallGrades = new HashMap<>();
+
+    public Student(){
+
+    }
+
+    public Student(String id, String username, String password, AccessLevel typeAccess) {
+        super(id, username, password, typeAccess);
+    }
 
     public HashMap<Course, ArrayList<Assignment>> getMarks() {
         return marks;

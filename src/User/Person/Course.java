@@ -94,17 +94,23 @@ public class Course {
 
         Teacher lecturer = getLecturerById();
         if(lecturer != null){
-            builder.append("\nTeacher: ").append(lecturer.getName());
+            builder.append("\nTeacher id: ").append(lecturer.getId());
+            if(lecturer.getName() != null){
+                builder.append("; Name: ").append(lecturer.getName());
+            } else builder.append("; Username: ").append(lecturer.getUsername());
         } else builder.append("\nNo teacher was assigned");
 
         builder.append("\nTotal number of courses: ")
                 .append(totalNumber);
         if(!getStudentsByIds().isEmpty()){
-            builder.append("\n\n---Student list---");
+            builder.append("\n------Student list------");
         }
 
         for(Student student: getStudentsByIds()){
-            builder.append("\n").append(student.getName());
+            builder.append("\n");
+            if(student.getName() != null){
+                builder.append(student.getName());
+            } else builder.append(student.getUsername());
         }
         return builder.toString();
     }
