@@ -9,15 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Resolving conflicts">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_04_24_00_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_04_24_00_56__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleInputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleInputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/AccessLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/AccessLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/Admin/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/Admin/Administrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/Admin/Database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/Admin/Database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Resolving conflicts" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -215,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714006440213</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Resolving conflicts">
+      <option name="closed" value="true" />
+      <created>1714008676782</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714008676782</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +249,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/User/User.java</url>
-          <line>146</line>
+          <line>152</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
