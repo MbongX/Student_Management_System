@@ -51,23 +51,40 @@
     &quot;state&quot;: &quot;OPEN&quot;
   }
 }</component>
-  <component name="GitHubPullRequestState">{
-  &quot;prStates&quot;: [
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
     {
-      &quot;id&quot;: {
-        &quot;id&quot;: &quot;PR_kwDOLw3O_85tqWbt&quot;,
-        &quot;number&quot;: 8
+      "id": {
+        "id": "PR_kwDOLw3O_85tqWbt",
+        "number": 8
       },
-      &quot;lastSeen&quot;: 1714005078990
+      "lastSeen": 1714005557531
+    },
+    {
+      "id": {
+        "id": "PR_kwDOLw3O_85tqZeD",
+        "number": 9
+      },
+      "lastSeen": 1714005864987
     }
   ]
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/MbongX/Student_Management_System.git&quot;,
-    &quot;accountId&quot;: &quot;009be723-4311-42c5-8d6b-58d156f40ae0&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/MbongX/Student_Management_System.git",
+    "accountId": "009be723-4311-42c5-8d6b-58d156f40ae0"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "MbongX",
+    "repository": "Student_Management_System"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -156,7 +173,7 @@
       <workItem from="1713627640042" duration="2524000" />
       <workItem from="1713967297826" duration="3909000" />
       <workItem from="1713983384371" duration="8607000" />
-      <workItem from="1713996994504" duration="7784000" />
+      <workItem from="1713996994504" duration="8584000" />
     </task>
     <task id="LOCAL-00001" summary="Initial push of partially combined project code">
       <option name="closed" value="true" />
@@ -206,11 +223,30 @@
       <option name="project" value="LOCAL" />
       <updated>1714004295073</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="-Removed exception handler on AccessLevel.java&#10;-Added database package and it's jar dependencies (backbone)&#10;-Added jars into project libraries&#10;-Remove initialization of user class on main method&#10;-Wrapped up the backbone of the User class to cater for cryptographic encryption of credentials">
+      <option name="closed" value="true" />
+      <created>1714005700874</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714005700874</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ConsoleInputManager try" />
