@@ -7,10 +7,7 @@ import User.Person.Student.Student;
 import User.AccessLevel;
 import User.User;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static java.lang.StringTemplate.STR;
 
@@ -27,6 +24,7 @@ public class Teacher extends Person {
 
     @Override
     public void start() {
+        createProfile();
         System.out.println("You are a Teacher. You can select the following options:");
         System.out.println("1. Courses\n2. Attendance tracking\n3. Assign grades\n4. Student details\n5. Log out");
         boolean isLoggedOut;
@@ -48,6 +46,8 @@ public class Teacher extends Person {
 
         logOut();
     }
+
+
 
     // Choice 1
     private void accessCourses() {
@@ -78,12 +78,14 @@ public class Teacher extends Person {
                     if (database.getCourses().isEmpty() || database.getUsers().isEmpty()) {
                         System.out.println("\nThere are no courses or students available to edit");
                     } else {
-                        System.out.print("\nChoose a student id: ");
-                        // @TODO ADDING LOOP TO DISPLAY students ?
-                        String studentId = getStudentId(in);
                         System.out.print("\nChoose a valid course id: ");
-                        // @TODO ADDING LOOP TO DISPLAY COURSES ?
+                        for (String id : getAvailableCoursesByTeacherId(getId())) {
+                            System.out.println(id);
+                        }
                         String courseId = getCourseId(in);
+                        System.out.print("\nChoose a student id: ");
+                        // @TODO ADDING LOOP TO DISPLAY students from the course selected by adding a method in course ?
+                        String studentId = getStudentId(in);
                         markAttendance(studentId, courseId);
                     }
                 }
@@ -92,7 +94,9 @@ public class Teacher extends Person {
                         System.out.println("\nThere are no courses available to edit");
                     } else {
                         System.out.print("\nChoose a valid course id: ");
-                        // @TODO ADDING LOOP TO DISPLAY COURSES ?
+                        for (String id : getAvailableCoursesByTeacherId(getId())) {
+                            System.out.println(id);
+                        }
                         String courseId = getCourseId(in);
                         generateAttendanceReport(courseId);
                     }
@@ -168,6 +172,16 @@ public class Teacher extends Person {
     }
 
     // Other methods
+    private ArrayList<String> getAvailableCoursesByTeacherId(String teacherId) {
+        ArrayList<String> availableCourseByTeacherId = new ArrayList<>();
+        for (Course course : database.getCourses()) {
+            if (course.getLecturerId().equals(teacherId)) {
+                availableCourseByTeacherId.add(course.getCourseId());
+            }
+        }
+        return availableCourseByTeacherId;
+    }
+
     private void viewTeachersCommands() {
         System.out.println("1. Courses\n2. Attendance tracking\n3. Assign grades\n4. Student details\n5. Log out");
     }
