@@ -2,6 +2,7 @@
 import User.Admin.Administrator;
 import User.Admin.Database.Database;
 import User.Person.Course;
+import User.Person.Person;
 import User.Person.Teacher.Teacher;
 import User.AccessLevel;
 import User.User;

@@ -16,7 +16,6 @@ import static java.lang.StringTemplate.STR;
 
 public class Teacher extends Person {
     Scanner in = new Scanner(System.in);
-    Database database = Database.getInstance();
 
     public Teacher(){
 

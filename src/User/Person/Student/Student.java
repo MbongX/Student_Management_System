@@ -39,11 +39,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Name: ").append(this.getName()).append("\nGender: ").append(this.isGender())
-                .append("\nDate of birth: ").append(this.getDateOfBirth()).append("\nAddress: ").append(this.getAddress())
-                .append("\nTelephone: ").append(this.getTelephone());
-
+        StringBuilder builder = new StringBuilder(super.toString());
         for(Map.Entry<Course, ArrayList<Assignment>> entry: marks.entrySet()){
             builder.append("\n\nCourse: ").append(entry.getKey().getSubject()).append("\nMarks: ");
             for(Assignment assignment: entry.getValue()){

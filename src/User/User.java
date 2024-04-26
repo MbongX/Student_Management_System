@@ -1,6 +1,8 @@
 package User;
 
 
+import User.Admin.Database.Database;
+
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.nio.charset.StandardCharsets;
@@ -20,6 +22,7 @@ public class User {
     AccessLevel typeAccess;
     Scanner in = new Scanner(System.in);
     Console console = System.console();
+    protected Database database = Database.getInstance();
 
     //getters and setters
     public String getId() {

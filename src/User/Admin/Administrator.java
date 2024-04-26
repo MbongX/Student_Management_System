@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class Administrator extends User {
 
-    Database database = Database.getInstance();
+
 
     public Administrator(){
 
