@@ -2,6 +2,8 @@ package User.Admin.Database;
 
 import User.Person.Course;
 import java.util.ArrayList;
+import java.util.Optional;
+
 import User.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +14,8 @@ import java.sql.DriverManager;
 
 public class Database {
 
-    public static int GLOBAL_ID;
+    public static int GLOBAL_ID_USER;
+    public static int GLOBAL_ID_COURSE;
     private static Database INSTANCE;
     private ArrayList<User> users;
     private ArrayList<Course> courses;
@@ -20,10 +23,9 @@ public class Database {
     private Database(){
         users = new ArrayList<>();
         courses = new ArrayList<>();
-        GLOBAL_ID = 1;
-        //initialize connection
-        //have classes methods that will perform the retrieval of data and store in the list on request
-        
+
+        GLOBAL_ID_USER = 1;
+        GLOBAL_ID_COURSE = 1;
     }
 
     public static Database getInstance(){
@@ -40,5 +42,16 @@ public class Database {
 
     public ArrayList<Course> getCourses() {
         return courses;
+    }
+
+    public Course getCourseById(String courseId){
+        Course course_ = null;
+        Optional<Course> courseOptional = INSTANCE.getCourses().stream().filter(course -> course.getCourseId().equals(courseId))
+                .findFirst();
+        if(courseOptional.isPresent()){
+            course_ = courseOptional.get();
+        }
+
+        return course_;
     }
 }
