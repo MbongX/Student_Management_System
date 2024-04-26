@@ -2,6 +2,7 @@ package User.Person;
 
 import java.util.Date;
 
+//deleted as an attribute from Person class because it throws StackOverflow, infinite loops of creating objects
 public class PersonBuilder {
     private Person person;
 

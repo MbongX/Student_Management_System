@@ -2,7 +2,15 @@ package User.Admin.Database;
 
 import User.Person.Course;
 import java.util.ArrayList;
+import java.util.Optional;
+
 import User.User;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.DriverManager;
 
 public class Database {
 
@@ -15,6 +23,7 @@ public class Database {
     private Database(){
         users = new ArrayList<>();
         courses = new ArrayList<>();
+
         GLOBAL_ID_USER = 1;
         GLOBAL_ID_COURSE = 1;
     }
@@ -33,5 +42,16 @@ public class Database {
 
     public ArrayList<Course> getCourses() {
         return courses;
+    }
+
+    public Course getCourseById(String courseId){
+        Course course_ = null;
+        Optional<Course> courseOptional = INSTANCE.getCourses().stream().filter(course -> course.getCourseId().equals(courseId))
+                .findFirst();
+        if(courseOptional.isPresent()){
+            course_ = courseOptional.get();
+        }
+
+        return course_;
     }
 }

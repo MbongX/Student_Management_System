@@ -1,9 +1,10 @@
 package User.Person.Teacher;
 
-import User.Admin.Database;
+import User.Admin.Database.Database;
 import User.Person.Course;
 import User.Person.Person;
 import User.Person.Student.Student;
+import User.AccessLevel;
 import User.User;
 
 import java.util.HashMap;
@@ -15,7 +16,14 @@ import static java.lang.StringTemplate.STR;
 
 public class Teacher extends Person {
     Scanner in = new Scanner(System.in);
-    Database database = Database.getInstance();
+
+    public Teacher(){
+
+    }
+
+    public Teacher(String id, String username, String password, AccessLevel typeAccess) {
+        super(id, username, password, typeAccess);
+    }
 
     @Override
     public void start() {
