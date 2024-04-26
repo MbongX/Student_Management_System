@@ -3,6 +3,12 @@ package User.Admin.Database;
 import User.Person.Course;
 import java.util.ArrayList;
 import User.User;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.DriverManager;
 
 public class Database {
 
@@ -15,6 +21,9 @@ public class Database {
         users = new ArrayList<>();
         courses = new ArrayList<>();
         GLOBAL_ID = 1;
+        //initialize connection
+        //have classes methods that will perform the retrieval of data and store in the list on request
+        
     }
 
     public static Database getInstance(){

@@ -10,9 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Updating workspace file">
-      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/qodana_code_quality.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_04_24_00_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024_04_24_00_56__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User/Admin/Database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/Admin/Database/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="devsergiu" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -108,12 +109,17 @@
     <option name="userId" value="3klbo" />
   </component>
   <component name="QodanaHighlightedReportService">
-    <option name="localRunNotPublishedPersistedInfo">
-      <LocalReportPersistedInfo>
-        <option name="path" value="C:\Users\Mbong\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
-        <option name="reportGuid" value="3d620e48-25c2-46e7-9fd7-811c53023761" />
-        <option name="reportName" value="Student_Management_System/qodana/2024-04-25" />
-      </LocalReportPersistedInfo>
+    <option name="localRunPublishedPersistedInfo">
+      <LocalRunPublishedPersistedInfo>
+        <option name="fileReportPersistedInfo">
+          <LocalReportPersistedInfo>
+            <option name="path" value="C:\Users\Mbong\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+            <option name="reportGuid" value="5b013857-44b0-40d6-9d3a-f0dfc7120fa4" />
+            <option name="reportName" value="Student_Management_System/qodana/2024-04-26" />
+          </LocalReportPersistedInfo>
+        </option>
+        <option name="reportLink" value="https://qodana.cloud/projects/3PZO6/reports/4G6ZO" />
+      </LocalRunPublishedPersistedInfo>
     </option>
   </component>
   <component name="QodanaIsSelectedPersistenceService">
@@ -121,7 +127,7 @@
   </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
-      <ReportDescription localRun="true" path="C:\Users\Mbong\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="3d620e48-25c2-46e7-9fd7-811c53023761" reportId="Student_Management_System/qodana/2024-04-25" />
+      <ReportDescription localRun="true" path="C:\Users\Mbong\AppData\Local\Temp\qodana_output\qodana.sarif.json" publishedReportLink="https://qodana.cloud/projects/3PZO6/reports/4G6ZO" reportGuid="5b013857-44b0-40d6-9d3a-f0dfc7120fa4" reportId="Student_Management_System/qodana/2024-04-26" />
     </option>
   </component>
   <component name="RecentsManager">
@@ -173,6 +179,9 @@
       <workItem from="1713983384371" duration="8607000" />
       <workItem from="1713996994504" duration="9300000" />
       <workItem from="1714016345902" duration="1792000" />
+      <workItem from="1714082215047" duration="33000" />
+      <workItem from="1714083046138" duration="738000" />
+      <workItem from="1714089157577" duration="4786000" />
     </task>
     <task id="LOCAL-00001" summary="Initial push of partially combined project code">
       <option name="closed" value="true" />
