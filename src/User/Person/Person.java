@@ -1,20 +1,31 @@
 package User.Person;
 
 import User.User;
+import User.AccessLevel;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Person extends User {
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
     private String name;
     private boolean gender;
     private Date dateOfBirth;
     private String address;
     private String telephone;
-    private ArrayList<Course> availableCourses = new ArrayList<>();
-    private PersonBuilder personBuilder = new PersonBuilder();
+    private ArrayList<String> availableCourses = new ArrayList<>();
+    private Scanner in = new Scanner(System.in);
 
     public Person() {
 
+    }
+
+    public Person(String id, String username, String password, AccessLevel typeAccess) {
+        super(id, username, password, typeAccess);
     }
 
     public Person(String name, boolean gender, Date dateOfBirth, String address, String telephone) {
@@ -23,40 +34,6 @@ public class Person extends User {
         this.dateOfBirth = dateOfBirth;
         this.address = address;
         this.telephone = telephone;
-    }
-
-    public Person createProfile(String name, boolean gender, Date dateOfBirth, String address, String telephone){
-        return personBuilder.setName(name).setGender(gender).setDate(dateOfBirth).setAddress(address).setTelephone(telephone)
-                .build();
-    }
-
-    public Person changeName(String name){
-        personBuilder.setName(name);
-        return this;
-    }
-
-    public Person changeGender(boolean gender){
-        personBuilder.setGender(gender);
-        return this;
-    }
-
-    public Person changeDate(Date date){
-        personBuilder.setDate(date);
-        return this;
-    }
-
-    public Person changeAddress(String address){
-        personBuilder.setAddress(address);
-        return this;
-    }
-
-    public Person changeTelephone(String telephone){
-        personBuilder.setTelephone(telephone);
-        return this;
-    }
-
-    public Person updateProfile(){
-        return personBuilder.build();
     }
 
     public String getName() {
@@ -99,11 +76,151 @@ public class Person extends User {
         this.telephone = telephone;
     }
 
-    public ArrayList<Course> getAvailableCourses() {
+    public ArrayList<String> getAvailableCourses() {
         return availableCourses;
     }
 
-    public void setAvailableCourses(ArrayList<Course> availableCourses) {
+    public void setAvailableCourses(ArrayList<String> availableCourses) {
         this.availableCourses = availableCourses;
+    }
+
+    public void createProfile(){
+        System.out.println("\n---Creating your profile---");
+        System.out.println("Name must contain only letters, minimum 2");
+        System.out.println("Gender must be either male or female");
+        System.out.println("Date of birth must have the following format - DD/MM/YYYY");
+        System.out.println("The address must contain a minimum of 4 letters");
+        System.out.println("Telephone number must have exactly 10 digits");
+
+        System.out.print("\nEnter your name: ");
+        String name = readName();
+        System.out.print("\nEnter your gender: ");
+        boolean gender = readGender();
+        System.out.print("\nEnter your date of birth: ");
+        Date date = readDate();
+        System.out.print("\nEnter your address: ");
+        String address = readAddress();
+        System.out.print("\nEnter your telephone number: ");
+        String telephone = readTelephone();
+
+        database.getUsers().stream().filter(user -> user.getId().equals(getId()))
+                .map(user -> (Person) user)
+                .forEach(person -> {
+                    person.name = name;
+                    person.gender = gender;
+                    person.dateOfBirth = date;
+                    person.address = address;
+                    person.telephone = telephone;
+                });
+        System.out.println("\nYour profile has been created!");
+    }
+
+    public void viewProfile(){
+        System.out.println("\n------Your profile------");
+        database.getUsers().stream().filter(user -> user.getId().equals(getId()))
+                .map(user -> (Person) user)
+                .forEach(person -> System.out.println(STR."\{person}"));
+    }
+
+    private String readName(){
+
+        boolean isValidName = false;
+        String pattern = "^[a-zA-Z]{2,}$";
+        String name = "";
+
+        while(!isValidName){
+            name = in.nextLine();
+            if(name.matches(pattern)){
+                isValidName = true;
+            } else System.out.println("\nInvalid name! Please try again");
+        }
+
+        return name;
+    }
+
+    private boolean readGender(){
+
+        boolean isValidGender = false;
+        String gender = "";
+
+        while(!isValidGender){
+            gender = in.nextLine();
+            if(gender.equalsIgnoreCase("Male") || gender.equalsIgnoreCase("Female")){
+                isValidGender = true;
+            } else System.out.println("\nInvalid gender! Please try again");
+        }
+
+        return gender.equalsIgnoreCase("Male");
+    }
+
+    private Date readDate(){
+
+        boolean isValidDate = false;
+        Date date = null;
+        String dateOfBirth = "";
+
+        while(!isValidDate){
+            dateOfBirth = in.nextLine();
+            try {
+                date = DATE_FORMAT.parse(dateOfBirth);
+                if(dateOfBirth.equals(DATE_FORMAT.format(date))){
+                    isValidDate = true;
+                } else System.out.println("\nInvalid date format! Please try again");
+            } catch (ParseException e) {
+                System.out.println("\nInvalid date format! Please try again");
+            }
+        }
+
+        return date;
+    }
+
+    private String readAddress(){
+
+        boolean isValidAddress = false;
+        String pattern = "(.*[a-zA-Z]){4}.*";
+        String address = "";
+
+        while(!isValidAddress){
+            address = in.nextLine();
+            if(address.matches(pattern)){
+                isValidAddress = true;
+            } else System.out.println("\nInvalid address! Please try again");
+        }
+
+        return address;
+    }
+
+    private String readTelephone(){
+
+        boolean isValidNumber = false;
+        String telephone = "";
+        String pattern = "\\d{10}";
+
+        while(!isValidNumber){
+            telephone = in.nextLine();
+            if(telephone.matches(pattern)){
+                isValidNumber = true;
+            } else System.out.println("\nInvalid phone number! Please try again");
+        }
+
+        return telephone;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Name: ").append(this.name).append("\nGender: ").append(toStringGender())
+                .append("\nDate of birth: ").append(toStringDateOfBirth()).append("\nAddress: ").append(this.address)
+                .append("\nTelephone: ").append(this.telephone);
+
+        return builder.toString();
+    }
+
+    public String toStringGender(){
+        return gender ? "Male" : "Female";
+    }
+
+    public String toStringDateOfBirth(){
+        return DATE_FORMAT.format(dateOfBirth);
     }
 }

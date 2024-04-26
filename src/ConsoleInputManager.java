@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.StringTemplate.STR;
+
 public class ConsoleInputManager {
     private static final Scanner scanner = new Scanner(System.in);
     public static List<Course> courses = new ArrayList<>();

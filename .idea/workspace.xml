@@ -9,7 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Resolving conflicts" />
+
+    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="updated yaml config file">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/qodana_code_quality.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/qodana.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="devsergiu" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,6 +66,9 @@
     &quot;repository&quot;: &quot;Student_Management_System&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -80,7 +88,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;zulu-21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Zulu/zulu-22&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mbong/IdeaProjects/Student_Management_System/.github/workflows/qodana.sarif.json&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -90,12 +98,44 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="QodanaCloudProjectLink">
+    <option name="lastReportId" value="Rn0ZK" />
+    <option name="linkedProjectId" value="AL7ex" />
+    <option name="linkedProjectName" value="Student_Management_System" />
+    <option name="organizationId" value="3w7V1" />
+    <option name="userId" value="3klbo" />
+  </component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunPublishedPersistedInfo">
+      <LocalRunPublishedPersistedInfo>
+        <option name="fileReportPersistedInfo">
+          <LocalReportPersistedInfo>
+            <option name="path" value="C:\Users\Mbong\AppData\Local\Temp\qodana_output1\qodana.sarif.json" />
+            <option name="reportGuid" value="f1f86129-3f77-438e-b183-7fa8b9bcb181" />
+            <option name="reportName" value="Student_Management_System/qodana/2024-04-26" />
+          </LocalReportPersistedInfo>
+        </option>
+        <option name="reportLink" value="https://qodana.cloud/projects/AL7ex/reports/Rn0ZK" />
+      </LocalRunPublishedPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\Mbong\AppData\Local\Temp\qodana_output\qodana.sarif.json" publishedReportLink="https://qodana.cloud/projects/3PZO6/reports/4G6ZO" reportGuid="5b013857-44b0-40d6-9d3a-f0dfc7120fa4" reportId="Student_Management_System/qodana/2024-04-26" />
+      <ReportDescription localRun="true" path="C:\Users\Mbong\AppData\Local\Temp\qodana_output1\qodana.sarif.json" publishedReportLink="https://qodana.cloud/projects/AL7ex/reports/Rn0ZK" reportGuid="f1f86129-3f77-438e-b183-7fa8b9bcb181" reportId="Student_Management_System/qodana/2024-04-26" />
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mbong\IdeaProjects\Student_Management_System\.github\workflows" />
+      <recent name="C:\Users\Mbong\IdeaProjects\Student_Management_System" />
       <recent name="C:\Users\Mbong\IdeaProjects\Student_Management_System\src\User\Admin\Database" />
       <recent name="C:\Users\Mbong\IdeaProjects\Student_Management_System\src" />
     </key>
@@ -142,6 +182,10 @@
       <workItem from="1713967297826" duration="3909000" />
       <workItem from="1713983384371" duration="8607000" />
       <workItem from="1713996994504" duration="9300000" />
+      <workItem from="1714016345902" duration="1792000" />
+      <workItem from="1714082215047" duration="33000" />
+      <workItem from="1714083046138" duration="738000" />
+      <workItem from="1714089157577" duration="7296000" />
     </task>
     <task id="LOCAL-00001" summary="Initial push of partially combined project code">
       <option name="closed" value="true" />
@@ -207,15 +251,25 @@
       <option name="project" value="LOCAL" />
       <updated>1714006440213</updated>
     </task>
-    <task id="LOCAL-00010" summary="Resolving conflicts">
+
+    <task id="LOCAL-00010" summary="updated yaml config file">
       <option name="closed" value="true" />
-      <created>1714008676782</created>
+      <created>1714095715424</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1714008676782</updated>
+      <updated>1714095715424</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="updated yaml config file">
+      <option name="closed" value="true" />
+      <created>1714096129639</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714096129639</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,16 +296,13 @@
     <MESSAGE value="-Removed exception handler on AccessLevel.java&#10;-Added database package and it's jar dependencies (backbone)&#10;-Added jars into project libraries&#10;-Remove initialization of user class on main method&#10;-Wrapped up the backbone of the User class to cater for cryptographic encryption of credentials" />
     <MESSAGE value="update on workspace.xml file" />
     <MESSAGE value="Resolving conflicts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolving conflicts" />
+    <MESSAGE value="updated yaml config file" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/database' into database&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/database' into database&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/User/User.java</url>
-          <line>152</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="31" />
