@@ -2,6 +2,8 @@ package User.Admin.Database;
 
 import User.Person.Course;
 import java.util.ArrayList;
+import java.util.Optional;
+
 import User.User;
 
 public class Database {
@@ -33,5 +35,16 @@ public class Database {
 
     public ArrayList<Course> getCourses() {
         return courses;
+    }
+
+    public Course getCourseById(String courseId){
+        Course course_ = null;
+        Optional<Course> courseOptional = INSTANCE.getCourses().stream().filter(course -> course.getCourseId().equals(courseId))
+                .findFirst();
+        if(courseOptional.isPresent()){
+            course_ = courseOptional.get();
+        }
+
+        return course_;
     }
 }

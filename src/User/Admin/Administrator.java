@@ -14,12 +14,19 @@ import java.util.Scanner;
 
 public class Administrator extends User {
 
-    Database database = Database.getInstance();
+
+
+    public Administrator(){
+
+    }
+
+    public Administrator(String id, String username, String password, AccessLevel typeAccess) {
+        super(id, username, password, typeAccess);
+    }
 
     @Override
     public void start(){
 
-        System.out.println("\nYou are an administrator. You can select the following options:");
         System.out.println("\nYou are an administrator. You can select the following options:");
         System.out.println("1. Users\n2. Courses\n3. System\n4. Log out");
         boolean isLoggedOut;
@@ -138,7 +145,7 @@ public class Administrator extends User {
             System.out.println("There are no users in the database");
         }
         for(User user: database.getUsers()){
-            System.out.println(user + "\n");
+            System.out.println(user.toStringUser() + "\n");
         }
         viewUsersCommands();
     }
@@ -148,7 +155,7 @@ public class Administrator extends User {
             System.out.println("There are no courses in the database");
         }
         for(Course course: database.getCourses()){
-            System.out.println(course + "\n");
+            System.out.println(course);
         }
         viewCoursesCommands();
     }
@@ -160,9 +167,12 @@ public class Administrator extends User {
         for(Course course: database.getCourses()){
             HashMap<String, Integer> map = course.getStudentAttendances();
             List<Student> students = course.getStudentsByIds();
-            System.out.println(STR."\n\nCourse - \{course.getSubject()}\n");
+            if(!students.isEmpty()){
+                System.out.println(STR."\n\nCourse - \{course.getSubject()}\n");
+            }
             for(Student student: students){
-                System.out.println(STR."\{student.getName()} : \{map.get(student.getId())}");
+                String finalName = student.getName() != null ? student.getName() : student.getUsername();
+                System.out.println(STR."\{finalName} : \{map.get(student.getId())}");
             }
         }
         viewCoursesCommands();
@@ -183,8 +193,21 @@ public class Administrator extends User {
         System.out.print("\nAccess level: ");
         AccessLevel accessLevel = AccessLevel.fromString(getAccessLevel(in));
 
-        database.getUsers().add(new User(userId, username, password, accessLevel));
-        System.out.println("User added successfully!");
+        switch (accessLevel) {
+            case STUDENT:
+                database.getUsers().add(new Student(userId, username, password, accessLevel));
+                System.out.println("Student added successfully!");
+                break;
+            case TEACHER:
+                database.getUsers().add(new Teacher(userId, username, password, accessLevel));
+                System.out.println("Teacher added successfully!");
+                break;
+            case ADMINISTRATOR:
+                database.getUsers().add(new Administrator(userId, username, password, accessLevel));
+                System.out.println("Administrator added successfully!");
+                break;
+        }
+
         viewUsersCommands();
     }
 
@@ -205,7 +228,7 @@ public class Administrator extends User {
             System.out.print("\nThere are no teachers available to assign");
         } else {
             database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.TEACHER)
-                    .forEach(System.out::println);
+                    .forEach(user -> System.out.println(user.toStringUser() + "\n"));
             System.out.print("\nSelect a lecturer id: ");
             lecturerId = getLecturerId(in);
         }
@@ -274,7 +297,7 @@ public class Administrator extends User {
     }
 
     private void removeCourse(String courseId){
-        database.getCourses().removeIf(course -> course.getCourseId().equals(courseId));
+        database.getCourses().removeIf(course_ -> course_.getCourseId().equals(courseId));
         System.out.println("Course " + courseId + " has been removed");
         viewCoursesCommands();
     }
@@ -414,8 +437,7 @@ public class Administrator extends User {
 
         while(!isValidNumber){
             total = in.nextLine();
-            int totalNr = Integer.parseInt(total);
-            if(total.matches(pattern) && (totalNr > 0 && totalNr <= 20)){
+            if(total.matches(pattern) && (Integer.parseInt(total) > 0 && Integer.parseInt(total) <= 20)){
                 isValidNumber = true;
             } else System.out.println("Invalid number of courses! Please try again");
         }
@@ -472,6 +494,9 @@ public class Administrator extends User {
     }
 
     private void editLecturer(String courseId, Scanner in){
+        database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.TEACHER)
+                .forEach(user -> System.out.println(user.toStringUser() + "\n"));
+
         System.out.print("\nEnter the new lecturer id: ");
         String lecturerId = getLecturerId(in);
 
@@ -519,7 +544,7 @@ public class Administrator extends User {
             System.out.println("\nThere are no students available to join");
         } else {
             for(User student: studentsNotInCourse){
-                System.out.println(student.toString() + "\n");
+                System.out.println(student.toStringUser() + "\n");
             }
             System.out.print("\nSelect a student id: ");
             String studentId = getStudentId(studentsNotInCourse, in);
