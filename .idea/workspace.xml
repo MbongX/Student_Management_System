@@ -9,11 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="updated yaml config file">
       <change afterPath="$PROJECT_DIR$/.github/workflows/qodana_code_quality.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/qodana.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -250,6 +251,7 @@
       <option name="project" value="LOCAL" />
       <updated>1714006440213</updated>
     </task>
+
     <task id="LOCAL-00010" summary="updated yaml config file">
       <option name="closed" value="true" />
       <created>1714095715424</created>
@@ -267,6 +269,7 @@
       <updated>1714096129639</updated>
     </task>
     <option name="localTasksCounter" value="12" />
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
