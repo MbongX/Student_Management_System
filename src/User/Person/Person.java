@@ -1,5 +1,6 @@
 package User.Person;
 
+import User.Person.Student.Student;
 import User.User;
 import User.AccessLevel;
 
@@ -18,7 +19,7 @@ public class Person extends User {
     private String address;
     private String telephone;
     private ArrayList<String> availableCourses = new ArrayList<>();
-    private Scanner in = new Scanner(System.in);
+    protected boolean isProfileCreated = false;
 
     public Person() {
 
@@ -84,7 +85,7 @@ public class Person extends User {
         this.availableCourses = availableCourses;
     }
 
-    public void createProfile(){
+    protected void createProfile(){
         System.out.println("\n---Creating your profile---");
         System.out.println("Name must contain only letters, minimum 2");
         System.out.println("Gender must be either male or female");
@@ -111,15 +112,40 @@ public class Person extends User {
                     person.dateOfBirth = date;
                     person.address = address;
                     person.telephone = telephone;
+                    person.isProfileCreated = true;
                 });
         System.out.println("\nYour profile has been created!");
     }
 
-    public void viewProfile(){
+    protected void viewProfile(){
         System.out.println("\n------Your profile------");
         database.getUsers().stream().filter(user -> user.getId().equals(getId()))
                 .map(user -> (Person) user)
                 .forEach(person -> System.out.println(STR."\{person}"));
+        viewStudentCommands();
+    }
+
+    protected void updateProfile(){
+        System.out.println("\n---Editing your profile---");
+        System.out.println("1. Edit name\n2. Edit gender\n3. Edit date of birth\n4. Edit address\n5. Edit telephone number\n6. Update profile");
+        boolean returnsBack;
+
+        do{
+            System.out.print("\nUse a command (1,2,3,4,5,6) to perform an action -> ");
+            String command = in.nextLine();
+            returnsBack = false;
+
+            switch (command){
+                case "1" -> editName();
+                case "2" -> editGender();
+                case "3" -> editDateOfBirth();
+                case "4" -> editAddress();
+                case "5" -> editTelephone();
+                case "6" -> returnsBack = true;
+                default -> System.out.println("Invalid command! Please try again");
+            }
+        }while(!returnsBack);
+        viewStudentCommands();
     }
 
     private String readName(){
@@ -206,6 +232,71 @@ public class Person extends User {
         return telephone;
     }
 
+    private void editName(){
+        System.out.print("\nEnter the new name: ");
+        String name = readName();
+
+        database.getUsers().stream().filter(user -> user.getId().equals(getId()))
+                .map(user -> (Person) user)
+                .forEach(person -> person.setName(name));
+        if(this instanceof Student){
+            System.out.println(STR."Student \{getId()} updated successfully!");
+        } else System.out.println(STR."Teacher \{getId()} updated successfully!");
+        viewUpdateProfileCommands();
+    }
+
+    private void editGender(){
+        System.out.print("\nEnter the new gender: ");
+        boolean gender = readGender();
+
+        database.getUsers().stream().filter(user -> user.getId().equals(getId()))
+                .map(user -> (Person) user)
+                .forEach(person -> person.setGender(gender));
+        if(this instanceof Student){
+            System.out.println(STR."Student \{getId()} updated successfully!");
+        } else System.out.println(STR."Teacher \{getId()} updated successfully!");
+        viewUpdateProfileCommands();
+    }
+
+    private void editDateOfBirth(){
+        System.out.print("\nEnter the new date of birth: ");
+        Date date = readDate();
+
+        database.getUsers().stream().filter(user -> user.getId().equals(getId()))
+                .map(user -> (Person) user)
+                .forEach(person -> person.setDateOfBirth(date));
+        if(this instanceof Student){
+            System.out.println(STR."Student \{getId()} updated successfully!");
+        } else System.out.println(STR."Teacher \{getId()} updated successfully!");
+        viewUpdateProfileCommands();
+    }
+
+    private void editAddress(){
+        System.out.print("\nEnter the new address: ");
+        String address = readAddress();
+
+        database.getUsers().stream().filter(user -> user.getId().equals(getId()))
+                .map(user -> (Person) user)
+                .forEach(person -> person.setAddress(address));
+        if(this instanceof Student){
+            System.out.println(STR."Student \{getId()} updated successfully!");
+        } else System.out.println(STR."Teacher \{getId()} updated successfully!");
+        viewUpdateProfileCommands();
+    }
+
+    private void editTelephone(){
+        System.out.print("\nEnter the new telephone number: ");
+        String telephone = readTelephone();
+
+        database.getUsers().stream().filter(user -> user.getId().equals(getId()))
+                .map(user -> (Person) user)
+                .forEach(person -> person.setTelephone(telephone));
+        if(this instanceof Student){
+            System.out.println(STR."Student \{getId()} updated successfully!");
+        } else System.out.println(STR."Teacher \{getId()} updated successfully!");
+        viewUpdateProfileCommands();
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -222,5 +313,13 @@ public class Person extends User {
 
     public String toStringDateOfBirth(){
         return DATE_FORMAT.format(dateOfBirth);
+    }
+
+    protected void viewStudentCommands(){
+        System.out.println("\n1. View profile\n2. Update profile\n3. View grades\n4. Calculate overall grades\n5. Join course\n6. Log out");
+    }
+
+    private void viewUpdateProfileCommands(){
+        System.out.println("\n1. Edit name\n2. Edit gender\n3. Edit date of birth\n4. Edit address\n5. Edit telephone number\n6. Update profile");
     }
 }
