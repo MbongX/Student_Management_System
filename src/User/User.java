@@ -20,7 +20,7 @@ public class User {
     char[] cPassword;
     ArrayList<Message> messagess;
     AccessLevel typeAccess;
-    Scanner in = new Scanner(System.in);
+    protected Scanner in = new Scanner(System.in);
     Console console = System.console();
     protected Database database = Database.getInstance();
 
