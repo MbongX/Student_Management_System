@@ -3,7 +3,6 @@ import User.Admin.Administrator;
 import User.Admin.Database.Database;
 import User.Person.Course;
 import User.Person.Person;
-import User.Person.Student.Student;
 import User.Person.Teacher.Teacher;
 import User.AccessLevel;
 import User.User;
@@ -13,7 +12,13 @@ import java.time.chrono.IsoEra;
 // user class declaration
 public class Main {
     public static void main(String[] args) {
-        Student student = new Student();
-        student.start();
+        //Administrator admin = new Administrator();
+        //admin.start();
+        User user = new User();
+        user.start();
+        //admin cred: 
+        //username : admin 
+        //password : Admin@123
+        //when done update password 
     }
 }
