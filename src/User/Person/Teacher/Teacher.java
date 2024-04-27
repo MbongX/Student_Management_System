@@ -181,7 +181,7 @@ public class Teacher extends Person {
             if (database.getCourses().stream().anyMatch(course -> course.getCourseId().equals(finalCourseId))) {
                 isValid = true;
             } else {
-                System.out.println("Invalid course, please select a valid ID course");
+                System.out.println("Invalid course id! Please select a valid one");
             }
         }
         return courseId;

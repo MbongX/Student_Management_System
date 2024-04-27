@@ -5,6 +5,16 @@ public class Assignment {
     private String name;
     private double grade;
 
+    public Assignment(){
+
+    }
+
+    public Assignment(String assignmentId, String name, double grade) {
+        this.assignmentId = assignmentId;
+        this.name = name;
+        this.grade = grade;
+    }
+
     public String getAssignmentId() {
         return assignmentId;
     }
