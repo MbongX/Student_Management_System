@@ -9,8 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="updated yaml config file">
-      <change beforePath="$PROJECT_DIR$/qodana.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Resolving conflicts">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User/Admin/Database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/Admin/Database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="devsergiu" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,7 +80,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -95,28 +98,23 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "settings.qodana",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="QodanaCloudProjectLink">
+    <option name="lastReportId" value="Rn0ZK" />
     <option name="linkedProjectId" value="AL7ex" />
     <option name="linkedProjectName" value="Student_Management_System" />
     <option name="organizationId" value="3w7V1" />
     <option name="userId" value="3klbo" />
   </component>
   <component name="QodanaHighlightedReportService">
-    <option name="localRunPublishedPersistedInfo">
-      <LocalRunPublishedPersistedInfo>
-        <option name="fileReportPersistedInfo">
-          <LocalReportPersistedInfo>
-            <option name="path" value="C:\Users\Mbong\AppData\Local\Temp\qodana_output1\qodana.sarif.json" />
-            <option name="reportGuid" value="f1f86129-3f77-438e-b183-7fa8b9bcb181" />
-            <option name="reportName" value="Student_Management_System/qodana/2024-04-26" />
-          </LocalReportPersistedInfo>
-        </option>
-        <option name="reportLink" value="https://qodana.cloud/projects/AL7ex/reports/Rn0ZK" />
-      </LocalRunPublishedPersistedInfo>
+    <option name="cloudReportPersistedInfo">
+      <CloudReportPersistedInfo>
+        <option name="projectId" value="AL7ex" />
+        <option name="reportId" value="Rn0ZK" />
+      </CloudReportPersistedInfo>
     </option>
   </component>
   <component name="QodanaIsSelectedPersistenceService">
@@ -124,9 +122,11 @@
   </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
-      <ReportDescription localRun="true" path="C:\Users\Mbong\AppData\Local\Temp\qodana_output\qodana.sarif.json" publishedReportLink="https://qodana.cloud/projects/3PZO6/reports/4G6ZO" reportGuid="5b013857-44b0-40d6-9d3a-f0dfc7120fa4" reportId="Student_Management_System/qodana/2024-04-26" />
-      <ReportDescription localRun="true" path="C:\Users\Mbong\AppData\Local\Temp\qodana_output1\qodana.sarif.json" publishedReportLink="https://qodana.cloud/projects/AL7ex/reports/Rn0ZK" reportGuid="f1f86129-3f77-438e-b183-7fa8b9bcb181" reportId="Student_Management_System/qodana/2024-04-26" />
+      <ReportDescription path="C:\Users\Mbong\IdeaProjects\Student_Management_System\.github\workflows\qodana.sarif.json" reportGuid="5b013857-44b0-40d6-9d3a-f0dfc7120fa4" reportId="Student_Management_System/qodana/2024-04-26" />
     </option>
+  </component>
+  <component name="QodanaSettings">
+    <option name="autoLoadCloudReport" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -180,6 +180,10 @@
       <workItem from="1714082215047" duration="33000" />
       <workItem from="1714083046138" duration="738000" />
       <workItem from="1714089157577" duration="5173000" />
+      <workItem from="1714140016856" duration="1007000" />
+      <workItem from="1714145849879" duration="2364000" />
+      <workItem from="1714226731233" duration="1809000" />
+      <workItem from="1714228555911" duration="1869000" />
     </task>
     <task id="LOCAL-00001" summary="Initial push of partially combined project code">
       <option name="closed" value="true" />
@@ -290,11 +294,28 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="31" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>228</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/User/User.java</url>
+          <line>148</line>
+          <properties class="User.User" method="isUsernameValid">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Student_Management_System$Main.ic" NAME="Main Coverage Results" MODIFIED="1714227472342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
