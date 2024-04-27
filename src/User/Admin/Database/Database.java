@@ -41,14 +41,14 @@ public class Database {
         GLOBAL_ID_COURSE = 1;
         GLOBAL_ID_ASSIGNMENT = 1;
         
-        //connecting to db
-        String urlString = "jdbc:mysql:src/User/Admin/Database/systemdata.db";
+
+        setUrl("jdbc:mysql:src/User/Admin/Database/systemdata.db");
 
         try {
             // db param
-            url = "jdbc:sqlite:path_to_your_sqlite_db";
+            
             // create a connection to the sql database
-            connection = DriverManager.getConnection(url);
+            connection = DriverManager.getConnection(getUrl());
             //testing purposes
             System.out.println("Connection to SQLite has been established.");
 
@@ -111,7 +111,7 @@ public class Database {
     
     public boolean performLogin(String username, String password) {
         //boolean success = false;
-        if(getConnection() != null) {
+       // if(getConnection() != null) {
             //build query
 
             try (Connection conn = DriverManager.getConnection(getUrl());
@@ -142,7 +142,7 @@ public class Database {
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
-        }
+       // }
         return isLoggedIn();
     }
 
