@@ -16,9 +16,6 @@ public class Main {
         //admin.start();
         User user = new User();
         user.start();
-        //admin cred: 
-        //username : admin 
-        //password : Admin@123
-        //when done update password 
+
     }
 }
