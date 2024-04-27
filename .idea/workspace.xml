@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Updated Db logic">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/Admin/Database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/Admin/Database/Database.java" afterDir="false" />
-    </list>
+    <list default="true" id="c9f34f90-f8ad-45e5-9654-28a4f7c111e1" name="Changes" comment="Updated Db logic" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +98,6 @@
   }
 }</component>
   <component name="QodanaCloudProjectLink">
-    <option name="lastReportId" value="VPoZd" />
     <option name="linkedProjectId" value="AL7ex" />
     <option name="linkedProjectName" value="Student_Management_System" />
     <option name="organizationId" value="3w7V1" />
@@ -184,6 +179,7 @@
       <workItem from="1714226731233" duration="1809000" />
       <workItem from="1714228555911" duration="1869000" />
       <workItem from="1714231172514" duration="2129000" />
+      <workItem from="1714234582870" duration="911000" />
     </task>
     <task id="LOCAL-00001" summary="Initial push of partially combined project code">
       <option name="closed" value="true" />
