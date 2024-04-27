@@ -7,10 +7,7 @@ import User.Person.Teacher.Teacher;
 import User.User;
 import User.AccessLevel;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 
 public class Administrator extends User {
 
@@ -546,14 +543,17 @@ public class Administrator extends User {
             for(User student: studentsNotInCourse){
                 System.out.println(student.toStringUser() + "\n");
             }
-            System.out.print("\nSelect a student id: ");
+            System.out.print("\nSelect a valid student id: ");
             String studentId = getStudentId(studentsNotInCourse, in);
 
             database.getCourses().stream().filter(course -> course.getCourseId().equals(courseId))
                                 .forEach(course -> course.getStudentAttendances().put(studentId, 0));
             database.getUsers().stream().filter(user -> user.getId().equals(studentId))
                                         .map(user -> (Student) user)
-                                        .forEach(student -> student.getAvailableCourses().add(courseId));
+                                        .forEach(student -> {
+                                            student.getAvailableCourses().add(courseId);
+                                            student.getMarks().put(courseId, new ArrayList<>());
+                                        });
             System.out.println("Student " + studentId + " has been successfully added to course " + courseId);
             viewEditCourseCommands();
         }

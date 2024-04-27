@@ -12,7 +12,10 @@ import java.time.chrono.IsoEra;
 // user class declaration
 public class Main {
     public static void main(String[] args) {
-        Administrator admin = new Administrator();
-        admin.start();
+        //Administrator admin = new Administrator();
+        //admin.start();
+        User user = new User();
+        user.start();
+
     }
 }

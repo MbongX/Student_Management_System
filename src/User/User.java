@@ -20,7 +20,7 @@ public class User {
     char[] cPassword;
     ArrayList<Message> messagess;
     AccessLevel typeAccess;
-    Scanner in = new Scanner(System.in);
+    protected Scanner in = new Scanner(System.in);
     Console console = System.console();
     protected Database database = Database.getInstance();
 
@@ -217,7 +217,7 @@ public class User {
 
         //combine the new hashkeys
         newHash = reverseString1.toString().concat(reverseString2.toString());
-        //System.out.println(newHash);
+        System.out.println(newHash);
         //return new hash
         return newHash;
     }
@@ -226,10 +226,8 @@ public class User {
         //given both username and password have been set and validated
         //Open connection to Database
         //perform validation of db credentials aginst local credentials to flagging it as succussfully logged in
-        validateCredentials(getPassword(), getPassword());
+        return validateCredentials(getPassword(), getPassword());
         //retrieve access type
-
-        return false;
     }
 
     public void hashPasscode(String hashPasscode) {
@@ -271,8 +269,14 @@ public class User {
     boolean validateCredentials(String username, String password) {
         // Note : This method will perform validation of the credentials against a db like system
         loggedIn = false;  //default value
+        if(database.performLogin(username,password)) {
+            loggedIn = true;
+        }else{
+            setErrorMessage("Invalid username or password!");
+            loggedIn = false;
+        }
 
-        return valid;
+        return loggedIn;
     }
 
     public void sendMessage(Message message) {
