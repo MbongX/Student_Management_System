@@ -7,10 +7,7 @@ import User.Person.Student.Student;
 import User.AccessLevel;
 import User.User;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static java.lang.StringTemplate.STR;
 
@@ -25,9 +22,14 @@ public class Teacher extends Person {
         super(id, username, password, typeAccess);
     }
 
+    public List<Course> getCoursesById(){
+        return database.getCourses().stream().filter(course -> course.getLecturerId().equals(getId()))
+                .toList();
+    }
+
     @Override
     public void start() {
-        System.out.println("You are a Teacher. You can select the following options:");
+        System.out.println("\nYou are a Teacher. You can select the following options:");
         System.out.println("1. Courses\n2. Attendance tracking\n3. Assign grades\n4. Student details\n5. Log out");
         boolean isLoggedOut;
 
@@ -52,10 +54,11 @@ public class Teacher extends Person {
     // Choice 1
     private void accessCourses() {
         // Display all courses
-        if (database.getCourses().isEmpty()) {
-            System.out.println("There are no courses in the database");
+        List<Course> courses = getCoursesById();
+        if (courses.isEmpty()) {
+            System.out.println("\nYou have not been assigned to any courses yet");
         }
-        for (Course course : database.getCourses()) {
+        for (Course course : courses) {
             System.out.println(STR."\{course.toString()}\n");
         }
         viewTeachersCommands();
@@ -88,11 +91,13 @@ public class Teacher extends Person {
                     }
                 }
                 case "3" -> {
-                    if (database.getCourses().isEmpty()) {
+                    if (getCoursesById().isEmpty()) {
                         System.out.println("\nThere are no courses available to edit");
                     } else {
+                        for (Course course : getCoursesById()) {
+                            System.out.println(STR."\{course.toString()}\n");
+                        }
                         System.out.print("\nChoose a valid course id: ");
-                        // @TODO ADDING LOOP TO DISPLAY COURSES ?
                         String courseId = getCourseId(in);
                         generateAttendanceReport(courseId);
                     }
@@ -112,11 +117,13 @@ public class Teacher extends Person {
     //Sergiu here - I changed the hashMap structure to have the student id (userId) as the key
     // in the Course class, so I had to change this method as well
     private void generateAttendanceReport(String courseId) {
-        Course course = database.getCourses().get(Integer.parseInt(courseId));
+        Course course = database.getCourseById(courseId);
         HashMap<String, Integer> map = course.getStudentAttendances();
         List<Student> students = course.getStudentsByIds();
 
-        System.out.println(STR."\nCourse - \{course.getSubject()}\n");
+        if(!students.isEmpty()){
+            System.out.println(STR."\nCourse - \{course.getSubject()}\n");
+        } else System.out.println("\nThere are no students participating at this course");
         for(Student student: students){
             System.out.println(STR."\{student.getName()} : \{map.get(student.getId())}");
         }
@@ -151,15 +158,17 @@ public class Teacher extends Person {
 
     // Choice 4
     private void accessStudents() {
-        if (database.getUsers().isEmpty()) {
+        if (database.getUsers().stream().noneMatch(user -> user.getTypeAccess() == AccessLevel.STUDENT)) {
             System.out.println("\nThere are no students available");
         } else {
+            database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.STUDENT)
+                    .forEach(user -> System.out.print(STR."\{user}"));
             System.out.print("\nChoose a valid ID: ");
-            // @TODO ADDING LOOP TO DISPLAY STUDENTS ?
             String studentId = getStudentId(in);
-            // @TODO Check the line below how we'll get our Student
-            Student student = (Student) database.getUsers().get(Integer.parseInt(studentId));
-            System.out.println(student.toString());
+            Student student = (Student) database.getUserById(studentId);
+            if(student.isProfileCreated()){
+                System.out.println(student);
+            } else System.out.println(STR."Student \{student.getUsername()} has not created his profile");
         }
     }
 
@@ -169,7 +178,7 @@ public class Teacher extends Person {
 
     // Other methods
     private void viewTeachersCommands() {
-        System.out.println("1. Courses\n2. Attendance tracking\n3. Assign grades\n4. Student details\n5. Log out");
+        System.out.println("\n1. Courses\n2. Attendance tracking\n3. Assign grades\n4. Student details\n5. Log out");
     }
 
     private String getCourseId(Scanner in) {
@@ -178,7 +187,7 @@ public class Teacher extends Person {
         while (!isValid) {
             courseId = in.nextLine();
             String finalCourseId = courseId;
-            if (database.getCourses().stream().anyMatch(course -> course.getCourseId().equals(finalCourseId))) {
+            if (getCoursesById().stream().anyMatch(course -> course.getCourseId().equals(finalCourseId))) {
                 isValid = true;
             } else {
                 System.out.println("Invalid course id! Please select a valid one");
@@ -193,7 +202,8 @@ public class Teacher extends Person {
         while (!isValid) {
             studentId = in.nextLine();
             String finalStudentId = studentId;
-            if (database.getUsers().stream().anyMatch(student -> student.getId().equals(finalStudentId))) {
+            if (database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.STUDENT)
+                                            .anyMatch(user -> user.getId().equals(finalStudentId))) {
                 isValid = true;
             } else {
                 System.out.println("Invalid Student ID, please select a valid one");

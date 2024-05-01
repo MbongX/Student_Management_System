@@ -76,4 +76,16 @@ public class Database {
 
         return assignment_;
     }
+
+    public User getUserById(String userId){
+        User user_ = null;
+        Optional<User> userOptional = INSTANCE.getUsers().stream()
+                .filter(user -> user.getId().equals(userId))
+                .findFirst();
+        if(userOptional.isPresent()){
+            user_ = userOptional.get();
+        }
+
+        return user_;
+    }
 }

@@ -85,6 +85,10 @@ public class Person extends User {
         this.availableCourses = availableCourses;
     }
 
+    public boolean isProfileCreated() {
+        return isProfileCreated;
+    }
+
     protected void createProfile(){
         System.out.println("\n---Creating your profile---");
         System.out.println("Name must contain only letters, minimum 2");
