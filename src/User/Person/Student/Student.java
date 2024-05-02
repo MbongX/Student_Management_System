@@ -7,6 +7,7 @@ import User.Person.Person;
 import User.User;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Student extends Person {
     private HashMap<String, ArrayList<String>> marks = new HashMap<>();
@@ -66,6 +67,21 @@ public class Student extends Person {
             }
         }
         return validMarks;
+    }
+
+    public List<Assignment> getAssignmentsFromCourseByStudentId(String courseId){
+        return database.getUsers().stream()
+                .filter(user -> user.getId().equals(getId()))
+                .map(user -> (Student) user)
+                .findFirst()
+                .map(student -> {
+                    List<String> assignmentIds = student.getMarks().get(courseId);
+                    return assignmentIds.stream()
+                            .map(database::getAssignmentById)
+                            .filter(Objects::nonNull)
+                            .collect(Collectors.toList());
+                })
+                .orElse(Collections.emptyList());
     }
 
 

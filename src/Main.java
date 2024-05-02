@@ -15,10 +15,5 @@ public class Main {
     public static void main(String[] args) {
         Administrator admin = new Administrator();
         admin.start();
-        Database database = Database.getInstance();
-        database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.STUDENT)
-                .map(user -> (Student) user)
-                .forEach(Student::start);
-        admin.start();
     }
 }
