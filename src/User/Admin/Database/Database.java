@@ -205,26 +205,18 @@ public class Database {
         this.connection = connection;
     }
 
-    public boolean isConnected() {
-        return connected;
-    }
 
-    public void setConnected(boolean connected) {
-        this.connected = connected;
-    }
-    public String getUrl() {
-        return url;
-    }
-    public void setUrl(String url) {
-        this.url = url;
-    }
+    public User getUserById(String userId){
+        User user_ = null;
+        Optional<User> userOptional = INSTANCE.getUsers().stream()
+                .filter(user -> user.getId().equals(userId))
+                .findFirst();
+        if(userOptional.isPresent()){
+            user_ = userOptional.get();
+        }
 
-    public boolean isLoggedIn() {
-        return loggedIn;
-    }
+        return user_;
 
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
     }
 
 

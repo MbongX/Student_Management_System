@@ -7,6 +7,7 @@ import User.Person.Person;
 import User.User;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Student extends Person {
     private HashMap<String, ArrayList<String>> marks = new HashMap<>();
@@ -66,6 +67,21 @@ public class Student extends Person {
             }
         }
         return validMarks;
+    }
+
+    public List<Assignment> getAssignmentsFromCourseByStudentId(String courseId){
+        return database.getUsers().stream()
+                .filter(user -> user.getId().equals(getId()))
+                .map(user -> (Student) user)
+                .findFirst()
+                .map(student -> {
+                    List<String> assignmentIds = student.getMarks().get(courseId);
+                    return assignmentIds.stream()
+                            .map(database::getAssignmentById)
+                            .filter(Objects::nonNull)
+                            .collect(Collectors.toList());
+                })
+                .orElse(Collections.emptyList());
     }
 
 
@@ -181,7 +197,10 @@ public class Student extends Person {
                 builder.append("\n").append(assignment.getName()).append(" -> ").append(assignment.getGrade());
             }
             if(!getOverallGrades().isEmpty()){
-                double grade = getOverallGrades().get(entry.getKey());
+                double grade = 0.0;
+                if(getOverallGrades().get(entry.getKey()) != null){
+                    grade = getOverallGrades().get(entry.getKey());
+                }
                 if(grade != 0){
                     builder.append("\nOverall grade: ").append(String.format("%.2f", grade));
                 } else builder.append("\nCourse not finished yet");
