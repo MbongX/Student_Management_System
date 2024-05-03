@@ -1,13 +1,12 @@
 package User.Admin.Database;
 
+import User.Person.Student.Assignment;
+import User.User;
+import User.Admin.Database.Constants;
 import User.Person.Course;
 import java.util.ArrayList;
 import java.util.Optional;
-
-import User.Person.Student.Assignment;
-import User.User;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -26,6 +25,8 @@ public class Database {
     private boolean connected;
     private boolean loggedIn;
     private String url;
+    private int userID;
+    private ArrayList<String> resultSets;
 
 
     private Database(){
@@ -33,7 +34,7 @@ public class Database {
         courses = new ArrayList<>();
 
         assignments = new ArrayList<>();
-
+        resultSets = new ArrayList<>();
         setConnected(false);
         setConnection(null);
         setLoggedIn(false);
@@ -41,29 +42,19 @@ public class Database {
         GLOBAL_ID_COURSE = 1;
         GLOBAL_ID_ASSIGNMENT = 1;
         
+        String url = Constants.getURL().toString();
+        String username = Constants.getSYSTEMUSER().toString();
+        String password = Constants.getSYSTEMPASSCODE().toString();
 
-        setUrl("jdbc:mysql:src/User/Admin/Database/systemdata.db");
+        System.out.println("Connecting to the database...");
 
         try {
-            // db param
-            
-            // create a connection to the sql database
-            connection = DriverManager.getConnection(getUrl());
-            //testing purposes
-            System.out.println("Connection to SQLite has been established.");
-
+            setConnection(connection = DriverManager.getConnection(url, username, password));
+            System.out.println("Database connected!");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            setConnected(false);
-        } /*finally {
-            try {
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException exception) {
-                System.out.println(exception.getMessage());
-            }
-        }*/
+            throw new IllegalStateException("Cannot connect to the database!", e);
+        }
+        
     }
 
     public static Database getInstance(){
@@ -93,7 +84,6 @@ public class Database {
         if(courseOptional.isPresent()){
             course_ = courseOptional.get();
         }
-
         return course_;
     }
 
@@ -108,6 +98,113 @@ public class Database {
 
         return assignment_;
     }
+    
+    public boolean performLogin(String username, String password) {
+        //Mysql Logic to check if user exists
+        try {
+            String user = null,pass = null;
+            getInstance();
+            Statement statement = this.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from core_system.users where username = '" + username.toString() + "' and password = '" + password.toString() + "';");
+
+            while (resultSet.next()) {
+                int userId = resultSet.getInt("id");
+                userID = userId;
+                user = resultSet.getString("username");
+                pass = resultSet.getString("password");
+                //testing purposes only
+                resultSets.add(String.valueOf(userId));
+                resultSets.add(user);
+                resultSets.add(pass);
+                System.out.println(getResultSets().toString());
+            }
+
+            //validate user and pass
+            if (user.equals(username) && pass.equals(password)) {
+                //check access Admin->Student->Teacher ?
+                resultSet = statement.executeQuery("select * from core_system.administrator where id = " + String.valueOf(userID) + ";");
+                //clear out the array
+                resultSets.clear();
+                while (resultSet.next()) {
+
+                    int adminId = resultSet.getInt("admin_id");
+                    int id = resultSet.getInt("id");
+                    //add to arraylist
+                    resultSets.add(String.valueOf(adminId));
+                    resultSets.add(String.valueOf(id));
+                }
+
+                if (!resultSets.isEmpty()) {
+                    //user is admin, check and assign access
+                    if(resultSets.get(1).equals(String.valueOf(userID))) {
+                        System.out.println("User is admin");
+                    }
+                } else {
+                    if (resultSets.isEmpty()) {
+
+                        //user not admin, check teacher
+                        resultSet = statement.executeQuery("select * from core_system.teachers where id = " + userID + ";");
+                        resultSets.clear();
+                        while (resultSet.next()) {
+                            int teacherID = resultSet.getInt("teacher_id");
+                            //int userId = resultSet.getInt("student_id");
+                            resultSets.add(String.valueOf(teacherID));
+                            //resultSets.add(String.valueOf(userId));
+                        }
+                        //check if user is teacher
+                        if(!resultSets.isEmpty()) {
+                            if(resultSets.get(0).equals(String.valueOf(userID))) {
+                                System.out.println("User is teacher");
+                            }else{
+                                if(resultSets.isEmpty()) {
+                                    System.out.println("User is not Teacher");
+                                }
+                            }
+                        }else{
+                            //check if user is student
+                            resultSet = statement.executeQuery("select * from core_system.teachers where id = " + userID + ";");
+                            resultSets.clear();
+                            while(resultSet.next()){
+                                int userId = resultSet.getInt("id");
+                                int studentId = resultSet.getInt("student_id");
+                                resultSets.add(String.valueOf(userId));
+                                resultSets.add(String.valueOf(studentId));
+                            }
+                            //verify if user is student via id
+                            if(resultSets.isEmpty()){
+                                //user is not student || -_- weird
+                                
+                            }else{
+                                if(resultSets.get(0).equals(String.valueOf(userID))) {
+                                    System.out.println("User is student");
+                                }
+                            }
+                        }
+                    }
+                }
+            }else {
+                System.out.println("Invalid credentials");
+                setLoggedIn(false);
+            }
+            
+        }catch (Exception e) {
+            setLoggedIn(false);
+            throw new RuntimeException(e);
+        }
+        
+        
+        //create a counter to check how many times they have tried, if counter is exceeded terminate the application
+        return isLoggedIn();
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
 
     public User getUserById(String userId){
         User user_ = null;
@@ -120,5 +217,20 @@ public class Database {
 
         return user_;
 
+    }
+
+
+    public ArrayList<String> getResultSets() {
+        return resultSets;
+    }
+
+    public void setResultSets(ArrayList<String> resultSets) {
+        this.resultSets = resultSets;
+    }
+    public int getUserID() {
+        return userID;
+    }
+    public void setUserID(int id) {
+        this.userID = id;
     }
 }

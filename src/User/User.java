@@ -226,7 +226,7 @@ public class User {
         //given both username and password have been set and validated
         //Open connection to Database
         //perform validation of db credentials aginst local credentials to flagging it as succussfully logged in
-        return validateCredentials(getPassword(), getPassword());
+        return validateCredentials(getUsername().toString(), getPassword().toString());
         //retrieve access type
     }
 
