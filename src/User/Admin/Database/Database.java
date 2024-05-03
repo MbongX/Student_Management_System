@@ -22,6 +22,11 @@ public class Database {
     private ArrayList<User> users;
     private ArrayList<Course> courses;
     private ArrayList<Assignment> assignments;
+    private Connection connection;
+    private boolean connected;
+    private boolean loggedIn;
+    private String url;
+
 
     private Database(){
         users = new ArrayList<>();
@@ -29,9 +34,36 @@ public class Database {
 
         assignments = new ArrayList<>();
 
+        setConnected(false);
+        setConnection(null);
+        setLoggedIn(false);
         GLOBAL_ID_USER = 1;
         GLOBAL_ID_COURSE = 1;
         GLOBAL_ID_ASSIGNMENT = 1;
+        
+
+        setUrl("jdbc:mysql:src/User/Admin/Database/systemdata.db");
+
+        try {
+            // db param
+            
+            // create a connection to the sql database
+            connection = DriverManager.getConnection(getUrl());
+            //testing purposes
+            System.out.println("Connection to SQLite has been established.");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            setConnected(false);
+        } /*finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException exception) {
+                System.out.println(exception.getMessage());
+            }
+        }*/
     }
 
     public static Database getInstance(){
@@ -87,5 +119,6 @@ public class Database {
         }
 
         return user_;
+
     }
 }
