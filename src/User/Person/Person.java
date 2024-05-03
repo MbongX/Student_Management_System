@@ -155,7 +155,7 @@ public class Person extends User {
     private String readName(){
 
         boolean isValidName = false;
-        String pattern = "^[a-zA-Z]{2,}$";
+        String pattern = "^[a-zA-Z\\s]{2,}$";
         String name = "";
 
         while(!isValidName){

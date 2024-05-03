@@ -197,7 +197,10 @@ public class Student extends Person {
                 builder.append("\n").append(assignment.getName()).append(" -> ").append(assignment.getGrade());
             }
             if(!getOverallGrades().isEmpty()){
-                double grade = getOverallGrades().get(entry.getKey());
+                double grade = 0.0;
+                if(getOverallGrades().get(entry.getKey()) != null){
+                    grade = getOverallGrades().get(entry.getKey());
+                }
                 if(grade != 0){
                     builder.append("\nOverall grade: ").append(String.format("%.2f", grade));
                 } else builder.append("\nCourse not finished yet");

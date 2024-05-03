@@ -59,7 +59,7 @@ public class Teacher extends Person {
                             for (Student student : students) {
                                 System.out.print(STR."\nId: \{student.getId()}; Username: \{student.getUsername()}");
                             }
-                            System.out.print("\nChoose a valid student id: ");
+                            System.out.print("\n\nChoose a valid student id: ");
                             String studentId = getStudentIdFromCourse(in, students);
                             Student student = (Student) database.getUserById(studentId);
                             if(command.equals("3")){
@@ -128,7 +128,7 @@ public class Teacher extends Person {
                             for(Student student: course.getStudentsByIds()){
                                 System.out.print(STR."\nId: \{student.getId()}; Username: \{student.getUsername()}");
                             }
-                            System.out.print("\nChoose a valid student id: ");
+                            System.out.print("\n\nChoose a valid student id: ");
                             String studentId = getStudentIdFromCourse(in, course.getStudentsByIds());
                             Student student = (Student) database.getUserById(studentId);
                             markAttendance(course, student);
@@ -196,7 +196,8 @@ public class Teacher extends Person {
             System.out.println(STR."\nCourse - \{course.getSubject()}\n");
         } else System.out.println("\nThere are no students participating in this course");
         for(Student student: students){
-            System.out.println(STR."\{student.getName()} : \{map.get(student.getId())}");
+            String finalName = student.getName() != null ? student.getName() : student.getUsername();
+            System.out.println(STR."\{finalName} : \{map.get(student.getId())}");
         }
     }
 
@@ -205,8 +206,8 @@ public class Teacher extends Person {
             System.out.println("\nThere are no students available");
         } else {
             database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.STUDENT)
-                    .forEach(user -> System.out.print(STR."\{user}"));
-            System.out.print("\nChoose a valid ID: ");
+                    .forEach(user -> System.out.print(STR."\nId: \{user.getId()}; Username: \{user.getUsername()}"));
+            System.out.print("\n\nChoose a valid ID: ");
             String studentId = getStudentId(in);
             Student student = (Student) database.getUserById(studentId);
             if(student.isProfileCreated()){
@@ -239,7 +240,7 @@ public class Teacher extends Person {
 
     private String getAssignmentName(){
         boolean isValidName = false;
-        String pattern = "^(?=.*[a-zA-Z]{3,})[a-zA-Z0-9]+$";
+        String pattern = "^(?=.*[a-zA-Z]{3,})[a-zA-Z0-9\\s]+$";
         String name = "";
 
         while(!isValidName){
