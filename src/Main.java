@@ -12,10 +12,15 @@ import java.time.chrono.IsoEra;
 // user class declaration
 public class Main {
     public static void main(String[] args) {
-        //Administrator admin = new Administrator();
-        //admin.start();
-        User user = new User();
-        user.start();
+      
+        Administrator admin = new Administrator();
+        admin.start();
+        Database database = Database.getInstance();
+        database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.TEACHER)
+                .forEach(user -> user.start());
+        database.getUsers().stream().filter(user -> user.getTypeAccess() == AccessLevel.STUDENT)
+                .forEach(user -> user.start());
+        admin.start();
 
     }
 }

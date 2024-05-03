@@ -290,4 +290,9 @@ public class User {
     public String toStringUser() {
         return "Id: " + id + "\nUsername: " + username + "\nPassword: " + password + "\nTypeAccess: " + typeAccess;
     }
+
+    @Override
+    public String toString() {
+        return "\nId: " + id + "; Username: " + username;
+    }
 }

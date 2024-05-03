@@ -108,71 +108,17 @@ public class Database {
 
         return assignment_;
     }
-    
-    public boolean performLogin(String username, String password) {
-        //boolean success = false;
-       // if(getConnection() != null) {
-            //build query
 
-            try (Connection conn = DriverManager.getConnection(getUrl());
-                 Statement stmt = conn.createStatement()) {
+    public User getUserById(String userId){
+        User user_ = null;
+        Optional<User> userOptional = INSTANCE.getUsers().stream()
+                .filter(user -> user.getId().equals(userId))
+                .findFirst();
+        if(userOptional.isPresent()){
+            user_ = userOptional.get();
+        }
 
-                // Executing a SELECT query
-                ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'");
-                while (rs.next()) {
-                    // Retrieve column values
-                    String user = rs.getString("username");
-                    String pass = rs.getString("password");
-                    // ... process the results -> Testing
-                    System.out.println(user + "\t" + pass);
-                    if(user.equals(username) && pass.equals(password)){
-                        setLoggedIn(true);
-                        System.out.println("Logged in successfully");
-                    }else{
-                        setLoggedIn(false);
-                        System.out.println("Log in unsuccessful");
-                    }
-                }
+        return user_;
 
-                // Executing an UPDATE query
-                /*int updateCount = stmt.executeUpdate("UPDATE your_table_name SET column2 = 'new_value' WHERE column1 = some_value");
-                System.out.println("Updated rows: " + updateCount);
-                */                 
-
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
-       // }
-        return isLoggedIn();
-    }
-
-    public Connection getConnection() {
-        return connection;
-    }
-
-    public void setConnection(Connection connection) {
-        this.connection = connection;
-    }
-
-    public boolean isConnected() {
-        return connected;
-    }
-
-    public void setConnected(boolean connected) {
-        this.connected = connected;
-    }
-    public String getUrl() {
-        return url;
-    }
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public boolean isLoggedIn() {
-        return loggedIn;
-    }
-
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
     }
 }
