@@ -1,13 +1,11 @@
 package User;
 
-
+import User.Admin.Administrator;
 import User.Admin.Database.Database;
-
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.Console;
@@ -23,6 +21,7 @@ public class User {
     protected Scanner in = new Scanner(System.in);
     Console console = System.console();
     protected Database database = Database.getInstance();
+    int loginCounter = 0;
 
     //getters and setters
     public String getId() {
@@ -97,6 +96,7 @@ public class User {
                         System.out.println(getErrorMessage());
                         //flag as invalid
                         validUsername = false;
+                        loginCounter++;
                     } else {
                         //set the Username
                         setUsername(inUsername);
@@ -104,7 +104,9 @@ public class User {
                         validUsername = true;
                     }
                 }
-                while (!validateUsername(inUsername));
+                while (!validateUsername(inUsername) && loginCounter != 3);
+                if(loginCounter == 3){loginTerminateProgram(loginCounter);}
+                loginCounter = 0;
             }
             do {
                 System.out.print("Enter password:");
@@ -129,6 +131,7 @@ public class User {
                 if (!validatePassword(inPassword)) {
                     //set flag outcome
                     validPassword = false;
+                    loginCounter++;
                     //print out error message
                     System.out.println(getErrorMessage());
 
@@ -136,10 +139,12 @@ public class User {
                     if (validatePassword(inPassword)) {
                         //hash and set the password
                         hashPasscode(inPassword);
+                        loginCounter = 0;
                     }
                 }
             }
-            while (!validatePassword(inPassword));
+            while (!validatePassword(inPassword)  && loginCounter != 3);
+            if(loginCounter == 3){loginTerminateProgram(loginCounter);}
         }
         while (!validUsername || !validPassword);
         System.out.println("Attempting to login ...");
@@ -217,7 +222,7 @@ public class User {
 
         //combine the new hashkeys
         newHash = reverseString1.toString().concat(reverseString2.toString());
-        System.out.println(newHash);
+        //System.out.println(newHash);
         //return new hash
         return newHash;
     }
@@ -279,6 +284,12 @@ public class User {
         return loggedIn;
     }
 
+    public void loginTerminateProgram(int loginCounter) {
+        if(loginCounter == 3){
+            System.exit(1);
+        }
+    }
+    
     public void sendMessage(Message message) {
 
     }
