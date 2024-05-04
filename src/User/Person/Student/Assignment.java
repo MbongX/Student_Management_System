@@ -34,4 +34,9 @@ public class Assignment {
     public void setGrade(double grade) {
         this.grade = grade;
     }
+
+    @Override
+    public String toString() {
+        return STR."Id: \{this.assignmentId}\nName: \{this.name}\nGrade: \{this.grade}";
+    }
 }

@@ -3,7 +3,7 @@ package User.Person;
 import User.Person.Student.Student;
 import User.User;
 import User.AccessLevel;
-
+import User.Admin.Database.Database;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -85,6 +85,10 @@ public class Person extends User {
         this.availableCourses = availableCourses;
     }
 
+    public boolean isProfileCreated() {
+        return isProfileCreated;
+    }
+
     protected void createProfile(){
         System.out.println("\n---Creating your profile---");
         System.out.println("Name must contain only letters, minimum 2");
@@ -151,7 +155,7 @@ public class Person extends User {
     private String readName(){
 
         boolean isValidName = false;
-        String pattern = "^[a-zA-Z]{2,}$";
+        String pattern = "^[a-zA-Z\\s]{2,}$";
         String name = "";
 
         while(!isValidName){

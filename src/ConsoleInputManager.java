@@ -28,9 +28,7 @@ public class ConsoleInputManager {
                 System.out.println("Exiting the program.");
                 break;
             }
-
         }
-
     }
 
     // Add role as argument to display commands according to each role ?
