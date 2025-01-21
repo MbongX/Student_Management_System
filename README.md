@@ -58,7 +58,7 @@ A comprehensive Java-based educational institution management system that provid
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/Student_Management_System.git
+git clone https://github.com/MbongX/Student_Management_System.git
 ```
 
 2. Navigate to the project directory:
